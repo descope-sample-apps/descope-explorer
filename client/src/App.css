@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+
+body {
+  font-family: 'Source Code Pro', monospace;
+  background-color: rgb(253, 247, 236);
+  color: rgb(34, 34, 34);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+h1 {
+  font-size: 3.5em;
+  margin: 0;
+  margin-bottom: 4vh;
+}
+p {
+  font-size: 1.2em;
+  width: 70%;
+  margin: 0;
+  margin-bottom: 5vh;
+}
+.explorer {
+  margin-bottom: 7vh;
+}
+.example {
+  background-color: rgb(14, 14, 14);
+  color: rgb(232, 232, 232);
+  padding: 3vh;
+  border: 3px solid rgb(141, 141, 141);
+}
+.underlined {
+  text-decoration: underline;
+}
+.jwt-txt {
+  text-align: left;
+  width: 80vw;
+  word-wrap: break-word;
+  background-color: rgb(229, 229, 229);
+  padding: 3vh;
+  border: 3px solid rgb(26, 26, 26);
+}
+.logout-btn {
+  background-color: rgb(20, 20, 20);
+  font-size: 1.1em;
+  border: 3px solid rgb(174, 174, 174);
+  color: rgb(236, 236, 236);
+  padding: 2vh 4vh;
+}
