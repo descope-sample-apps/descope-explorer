@@ -1,0 +1,13 @@
+{
+    "name": "descope-explorer",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "setup": "cd client && npm install",
+        "client": "cd client && npm start"
+    },
+    "dependencies": {
+        "@descope/react-sdk": "^1.0.8"
+    }
+}
