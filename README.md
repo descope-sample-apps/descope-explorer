@@ -1,13 +1,13 @@
 # Descope Explorer 🔍
 
-Welcome to Descope Explorer. A quick and easy way to view Descope project authentication flows. <br>
+Welcome to Descope Explorer. An easy way to preview and interact with Descope authentication flows. <br>
 All you need to do is format the URL with the correct parameters. The following URL is hosted on localhost 3000 but yours may be different: 
 
 ```
-http://localhost:3000/?project=PROJECT_ID&flow=FLOW_ID
+http://localhost:3000/?project=PROJECT_ID&flow=FLOW_ID&theme=light
 ```
 
-> **_NOTE:_**  If you do not include the flow parameter, it will use the default sign-up-or-in flow id. 
+> **_NOTE:_**  If you do not include the flow parameter, it will use the default sign-up-or-in flow id. If you do not include a theme parameter, it will use light as the default.
 
 ## Installing Dependencies 🛠️
 
