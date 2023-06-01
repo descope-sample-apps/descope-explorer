@@ -1,4 +1,4 @@
-# Descope Explorer 🔍
+# Descope Explorer
 
 Welcome to Descope Explorer. An easy way to preview and interact with Descope authentication flows. <br>
 All you need to do is format the URL with the correct parameters. The following URL is hosted on localhost 3000 but yours may be different: 
