@@ -11,7 +11,6 @@ function AppRoot () {
 
   return (
     <div className='flex-col'>
-      {console.log(flow)}
       {project && flow ? 
         <AuthProvider projectId={project}>
           <App flow={flow} />
