@@ -84,21 +84,21 @@ function Home({ flow, project, theme }) {
           <div className='doc-box'>
             <div className='flex-row title-container'>
               <SchoolOutlinedIcon/>
-              <a href='https://docs.descope.com/' className='doc-title'>Documentation</a>
+              <a href='https://docs.descope.com/' target="_blank" rel="noreferrer" className='doc-title'>Documentation</a>
             </div>
             <p className='doc-txt'>Everything you need to know, including APIs, SDKs and sample codes</p>
           </div>
           <div className='doc-box'>
             <div className='flex-row title-container'>
               <LocalLibraryOutlinedIcon/>
-              <a href="https://www.descope.com/community" className='doc-title'>Community</a>
+              <a href="https://www.descope.com/community" target="_blank" rel="noreferrer" className='doc-title'>Community</a>
             </div>
             <p className='doc-txt'>Collaborate and chat with other Descopers about passwordless experiences</p>
           </div>
           <div className='doc-box'>
             <div className='flex-row title-container'>
               <LiveHelpOutlinedIcon/>
-              <a href="#" className='doc-title'>Get Help</a>
+              <a href="https://docs.descope.com/support/" target="_blank" rel="noreferrer" className='doc-title'>Get Help</a>
             </div>
             <p className='doc-txt'>Contact our Developer Success team to accelerate your passwordless journey</p>
           </div>
