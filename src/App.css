@@ -1,57 +1,199 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
 
-body {
-  font-family: 'Source Code Pro', monospace;
-  background-color: rgb(253, 247, 236);
-  color: rgb(34, 34, 34);
+
+/*  ===== CSS Variables ===== */
+:root {
+  --title-color: rgb(0, 130, 181);
+  --background: white;
+  --txt-color: rgb(34, 34, 34);
+  --label-bg: aliceblue;
+  --label-txt: rgb(0, 130, 181);
+  --border-color: rgb(0, 130, 181);
+  --code-left-color: aliceblue;
+  --code-right-color: rgb(228, 242, 255);
+  --jwt-border: rgb(86, 167, 199);
+  --logout-bg: aliceblue; 
+  --logout-txt: rgb(0, 130, 181);
+  --logout-border: rgb(0, 130, 181);
+  --docs-bg: aliceblue;
+  --docs-border: rgb(0, 130, 181);
+}
+[data-theme="dark"] {
+  --title-color: rgb(62, 207, 255);
+  --background: rgb(0, 0, 0);
+  --txt-color: rgb(217, 217, 217);
+  --label-bg: rgb(23, 23, 23);
+  --label-txt: rgb(62, 207, 255);
+  --border-color: rgb(36, 145, 189);
+  --code-left-color: rgb(27, 27, 27);
+  --code-right-color: rgb(21, 21, 21);
+  --jwt-border: rgb(44, 44, 44);
+  --logout-bg: rgb(16, 16, 16); 
+  --logout-txt: rgb(62, 207, 255);
+  --logout-border: rgb(61, 169, 206);
+  --docs-bg: rgb(25, 25, 25);
+  --docs-border: rgb(53, 128, 158);
 }
 
+
+/*  ===== html + body ===== */
+html, body {
+  font-family: 'JetBrains Mono', monospace;
+  margin: 0;
+  height: 100%;
+  color: var(--txt-color);
+  background-color: var(--background);
+}
+
+
+/*  ===== Fonts + Sizes ===== */
+.title {
+  color: var(--title-color);
+}
+h1 {
+  font-size: 3.5em;
+  margin: 0;
+  margin-bottom: 6vh;
+}
+p {
+  font-size: 1.2em;
+  width: 70vw;
+  margin: 0;
+  margin-bottom: 6vh;
+}
+
+
+/* Animations */
+.label {
+  overflow: hidden; 
+  white-space: nowrap; 
+  animation: openup 3s 
+}
+@keyframes openup {
+  from { width: 0 }
+  to { width: 30vh }
+}
+
+/*  ===== Flex boxes ===== */
 .flex-col {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  width: 100%;
+  height: 100%;
+  padding-top: 14vh;
+  padding-bottom: 10vh;
 }
-h1 {
-  font-size: 3.5em;
+.flex-row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  height: 100%;
+  align-items: stretch;
   margin: 0;
-  margin-bottom: 4vh;
 }
-p {
-  font-size: 1.2em;
-  width: 70%;
-  margin: 0;
-  margin-bottom: 5vh;
+.no-padding {
+  padding: 0;
 }
-.explorer {
+
+
+/*  ===== Displaying the JWT Info ===== */
+.jwt-border {
+  border: 3px solid var(--jwt-border);
+  margin-bottom: 6vh;
+  padding: 0;
+}
+.jwt-container {
+  flex: 1;
+  font-size: 1.4em;
+  text-align: left;
+  background-color: var(--code-left-color);
+  padding: 3vh;
+  overflow-x: scroll;
+}
+.right-jwt {
+  background-color: var(--code-right-color);
+}
+
+
+/*  ===== The Labels ===== */
+.label-container {
   margin-bottom: 7vh;
 }
+.label {
+  border: 2px solid var(--border-color);
+  margin: 0;
+  padding: 2vh;
+  display: inline-block;
+  width: 30vh;
+  vertical-align: middle;
+  font-size: 1.1em;
+  color: rgb(0, 130, 181);
+}
+.light-blue {
+  color: var(--label-txt);
+  background-color: var(--label-bg);
+}
+.dark-blue {
+  background-color: rgb(0, 130, 181);
+  color: aliceblue;
+  overflow-x: scroll;
+}
+
+
+/*  ===== Error ===== */
 .example {
-  background-color: rgb(14, 14, 14);
-  color: rgb(232, 232, 232);
+  background-color: aliceblue;
+  color: rgb(0, 105, 149);
   padding: 3vh;
-  border: 3px solid rgb(141, 141, 141);
+  border: 3px solid rgb(0, 130, 181);
+  word-wrap: break-word;
+  cursor: pointer;
 }
 .underlined {
   text-decoration: underline;
 }
-.jwt-container {
-  font-size: 1.4em;
-  text-align: left;
-  width: 80vw;
-  word-wrap: break-word;
-  background-color: rgb(245, 245, 245);
-  padding: 3vh;
-  border: 3px solid rgb(26, 26, 26);
-  margin-bottom: 5vh;
-}
+
+/*  ===== Logout button ===== */
 .logout-btn {
-  background-color: rgb(20, 20, 20);
-  font-size: 1.1em;
-  border: 3px solid rgb(174, 174, 174);
-  color: rgb(236, 236, 236);
+  background-color: var(--logout-bg);
+  font-size: 1.2em;
+  border: 2px solid var(--logout-border);
+  color: var(--logout-txt);
   padding: 2vh 4vh;
+  cursor: pointer;
+}
+
+
+/* Documentation at bottom */
+.doc-space {
+  padding: 0;
+  margin-top: 14vh;
+}
+.doc-box {
+  flex: 1;
+  align-items: flex-start;
+  text-align: left;
+  padding: 5vh;
+  background-color: var(--docs-bg);
+  border: 2px solid var(--docs-border);
+  margin: 1vh;
+  padding-bottom: 0vh;
+}
+.doc-title {
+  color: var(--title-color);
+  font-size: 1.5em;
+  text-decoration: none;
+  margin-left: 1vh;
+}
+.title-container {
+  height: fit-content;
+  margin-bottom: 2vh;
+  color: var(--title-color);
+}
+.doc-txt {
+  width: fit-content;
+  font-size: 1em;
 }
