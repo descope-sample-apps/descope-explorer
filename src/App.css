@@ -38,13 +38,15 @@ p {
 .underlined {
   text-decoration: underline;
 }
-.jwt-txt {
+.jwt-container {
+  font-size: 1.4em;
   text-align: left;
   width: 80vw;
   word-wrap: break-word;
-  background-color: rgb(229, 229, 229);
+  background-color: rgb(245, 245, 245);
   padding: 3vh;
   border: 3px solid rgb(26, 26, 26);
+  margin-bottom: 5vh;
 }
 .logout-btn {
   background-color: rgb(20, 20, 20);

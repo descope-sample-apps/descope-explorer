@@ -6,14 +6,15 @@ import { Descope } from '@descope/react-sdk'
 
 function AppRoot () {
   const queryParameters = new URLSearchParams(window.location.search)
-  const projectID = queryParameters.get("projectid")
-  const flowID = queryParameters.get("flowid")
+  const project = queryParameters.get("project")
+  const flow = queryParameters.get("flow") || "sign-up-or-in"
 
   return (
     <div className='flex-col'>
-      {projectID && flowID ? 
-        <AuthProvider projectId={projectID}>
-          <App flowID={flowID} projectID={projectID}/>
+      {console.log(flow)}
+      {project && flow ? 
+        <AuthProvider projectId={project}>
+          <App flow={flow} />
         </AuthProvider>
         :
         <Error />
@@ -29,13 +30,13 @@ function Error() {
       <h1>Hmmmmm 🤔</h1>
       <p>Please make sure the URL is correctly formatted with the right <span className='underlined'>project id</span> and <span className='underlined'>flow id</span>.</p>
       <p>Here's an example (for localhost 3000): </p>
-      <p className='example'>http://localhost:3000/?projectid=PROJECT_ID&flowid=FLOW_ID</p>
+      <p className='example'>http://localhost:3000/?project=PROJECT_ID&flow=FLOW_ID</p>
     </div>
   )
 }
 
 
-function App({ flowID, projectID }) {
+function App({ flow }) {
   // isAuthenticated: boolean - is the user authenticated?
   // isSessionLoading: boolean - Use this for showing loading screens while objects are being loaded
   const { isAuthenticated } = useSession()
@@ -46,20 +47,26 @@ function App({ flowID, projectID }) {
   // our jwt 
   const [jwt, setJwt] = useState("")
 
+  const decodeJWT = (jwt) => {
+    var tokens = jwt.split(".");
+    const payloadJSON = JSON.stringify(JSON.parse(atob(tokens[1])), null, 2)
+    setJwt(payloadJSON)
+  }
+
   return (
     <div className='flex-col'>
       <h1>Descope Explorer 🔑</h1>
-      <p className='explorer'>Welcome to Descope Explorer. A quick and easy way to view authentication flows and projects live.</p>
+      <p className='explorer'>Welcome to Descope Explorer. A quick and easy way to view Descope project authentication flows.</p>
 
       { isAuthenticated &&
         (
           <>
             {jwt ? 
-              <p className='jwt-txt'>{jwt}</p>
+              <div className='jwt-container'><pre>{jwt}</pre></div>
               :
-              <p className='jwt-txt'>Logout and Relogin</p>
+              <div className='jwt-container'>Logout and Relogin</div>
             }  
-            <button className='logout-btn' onClick={logout}>Logout 🔒</button>
+            <button className='logout-btn' onClick={logout}>Try Again 🔒</button>
           </>
         )
       }
@@ -67,8 +74,8 @@ function App({ flowID, projectID }) {
       { !isAuthenticated &&
         (
           <Descope
-            flowId={flowID} // If you wish to use another flow, flow-id is shown in the console
-            onSuccess = {(e) => setJwt(e.detail.sessionJwt)}
+            flowId={flow} // If you wish to use another flow, flow-id is shown in the console
+            onSuccess = {(e) => decodeJWT(e.detail.sessionJwt)}
             onError={(e) => console.log('Could not log in!')}
             theme="light" // "light" or "dark", default is "light"
             //    debug=boolean // Shows a debug widget if true. Can be true or false, default is false.
