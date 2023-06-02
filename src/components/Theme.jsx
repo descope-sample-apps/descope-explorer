@@ -3,7 +3,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
 
-function Navbar({ theme, setTheme }) {
+function Theme({ theme, setTheme }) {
     if (theme === "dark") {
         document.documentElement.setAttribute("data-theme", "dark");
     } 
@@ -16,16 +16,16 @@ function Navbar({ theme, setTheme }) {
     }
 
     return (
-        <div className="navbar">
+        <>
             {theme === "dark" ? 
-                <button onClick={() => changeTheme("light")}><DarkModeIcon fontSize="large"/></button>
+                <button className='theme-btn' onClick={() => changeTheme("light")}><DarkModeIcon /></button>
                 :
-                <button onClick={() => changeTheme("dark")}><LightModeIcon fontSize="large"/></button>
+                <button className='theme-btn' onClick={() => changeTheme("dark")}><LightModeIcon /></button>
             }
-        </div>
+        </>
     )
 }
 
 
-export default Navbar
+export default Theme
 

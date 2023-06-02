@@ -3,16 +3,21 @@ import { useState, useEffect } from 'react';
 import { useDescope, useSession } from '@descope/react-sdk'
 import { Descope } from '@descope/react-sdk'
 
+import Theme from "./Theme"
+
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import LiveHelpOutlinedIcon from '@mui/icons-material/LiveHelpOutlined';
 import LocalLibraryOutlinedIcon from '@mui/icons-material/LocalLibraryOutlined';
+import LockIcon from '@mui/icons-material/Lock';
 
 
-function Home({ flow, project, theme }) {
+function Home({ flow }) {
+    const queryParameters = new URLSearchParams(window.location.search)
     const { isAuthenticated } = useSession()
     const { logout } = useDescope()
     const [jwt, setJwt] = useState("")
     const [response, setResponse] = useState("")
+    const [theme, setTheme] = useState(queryParameters.get("theme") || "light")
 
     useEffect(() => {
       if (!jwt) {
@@ -39,11 +44,15 @@ function Home({ flow, project, theme }) {
   
     return (
       <div className="flex-col">
-        <h1 className='title'>Descope Explorer 🔑</h1>
+        <h1 className='title'>Descope Explorer</h1>
         <p>Welcome to Descope Explorer. An easy way to preview and interact with Descope authentication flows</p>
-        <div className='label-container'>
-          <p className='label light-blue'>{flow}</p>
-          <p className='label dark-blue'>{project}</p>
+        <div className='flex-col flex-row label-container'>
+          <Theme theme={theme} setTheme={setTheme} />
+          <div>
+            <p className='label dark-blue'>flow id: </p>
+            <p className='label light-blue'>{flow}</p>
+          </div>
+          {isAuthenticated &&  <button className='theme-btn logout-btn' onClick={logout}><LockIcon /></button>}
         </div>
 
         { isAuthenticated &&
@@ -55,13 +64,13 @@ function Home({ flow, project, theme }) {
                   <div className='right-jwt jwt-container'><pre>{response}</pre></div>
                 </div>
               )}  
-              <button className='logout-btn' onClick={logout}>Logout 🔒</button>
             </>
           )
         }
 
         { !isAuthenticated && (
-          <>
+          <div className='flex-col descope-widget'>
+            <p className='descope-p'>Descope Component in your app: </p>
             {theme === "light" ?
               <Descope
                 flowId={flow} 
@@ -77,7 +86,7 @@ function Home({ flow, project, theme }) {
                 theme="dark"
               /> 
             }
-          </>
+          </div>
           )
         }
         <div className="flex-col flex-row doc-space">

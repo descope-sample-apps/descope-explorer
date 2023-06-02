@@ -9,16 +9,22 @@
   --label-bg: aliceblue;
   --label-txt: rgb(0, 130, 181);
   --border-color: rgb(0, 130, 181);
-  --code-left-color: aliceblue;
-  --code-right-color: rgb(228, 242, 255);
+  --code-left-color: rgb(254, 254, 254);
+  --code-right-color: rgb(240, 249, 255);
   --jwt-border: rgb(86, 167, 199);
-  --logout-bg: aliceblue; 
+  --logout-bg: rgb(255, 217, 206); 
   --logout-txt: rgb(0, 130, 181);
   --logout-border: rgb(0, 130, 181);
   --docs-bg: aliceblue;
   --docs-border: rgb(0, 130, 181);
   --navbar-btn: rgb(0, 130, 181);
   --navbar-btn-bg: rgb(221, 240, 255);
+  --box-shadow1: rgb(177, 219, 255);
+  --box-shadow2: rgb(195, 227, 255);
+  --box-shadow3: rgb(195, 227, 255);
+  --box-shadow4: rgb(195, 227, 255);
+  --box-shadow5: rgb(177, 219, 255);
+  --box-shadow6: rgb(195, 227, 255);
 }
 [data-theme="dark"] {
   --title-color: rgb(62, 207, 255);
@@ -29,14 +35,20 @@
   --border-color: rgb(36, 145, 189);
   --code-left-color: rgb(27, 27, 27);
   --code-right-color: rgb(21, 21, 21);
-  --jwt-border: rgb(44, 44, 44);
-  --logout-bg: rgb(16, 16, 16); 
+  --jwt-border: rgb(58, 58, 58);
+  --logout-bg: rgb(61, 28, 28); 
   --logout-txt: rgb(62, 207, 255);
   --logout-border: rgb(61, 169, 206);
-  --docs-bg: rgb(25, 25, 25);
+  --docs-bg: rgb(29, 29, 29);
   --docs-border: rgb(53, 128, 158);
   --navbar-btn: rgb(235, 229, 120);
-  --navbar-btn-bg: rgb(29, 29, 29);
+  --navbar-btn-bg: rgb(34, 34, 34);
+  --box-shadow1: rgb(30, 30, 30);
+  --box-shadow2: rgb(73, 69, 69);
+  --box-shadow3: rgb(110, 157, 198);
+  --box-shadow4: rgb(12, 119, 207);
+  --box-shadow5: rgb(20, 68, 112);
+  --box-shadow6: rgb(47, 184, 229);
 }
 
 
@@ -51,22 +63,15 @@ html, body {
 
 
 /* ===== Navbar ===== */
-.navbar {
-  width: 100%;
-  overflow: hidden;
-  color: blue;
-}
-.navbar button {
+.theme-btn {
   background: none;
   border: none;
   cursor: pointer;
-  float: right;
-  margin: 4vh;
   color: var(--navbar-btn);
   background-color: var(--navbar-btn-bg);
-  width: 8vh;
-  height: 8vh;
-  margin-bottom: 0;
+  width: 6vh;
+  height: 6vh;
+  margin: 2vh;
 }
 
 
@@ -77,25 +82,13 @@ html, body {
 h1 {
   font-size: 3.5em;
   margin: 0;
-  margin-bottom: 6vh;
+  margin-bottom: 4vh;
 }
 p {
   font-size: 1.2em;
   width: 70vw;
   margin: 0;
-  margin-bottom: 6vh;
-}
-
-
-/* Animations */
-.label {
-  overflow: hidden; 
-  white-space: nowrap; 
-  animation: openup 3s 
-}
-@keyframes openup {
-  from { width: 0 }
-  to { width: 30vh }
+  margin-bottom: 4vh;
 }
 
 
@@ -108,8 +101,8 @@ p {
   text-align: center;
   width: 100%;
   height: 100%;
-  padding-top: 14vh;
-  padding-bottom: 10vh;
+  padding-top: 4vh;
+  padding-bottom: 5vh;
 }
 .flex-row {
   flex-direction: row;
@@ -124,10 +117,24 @@ p {
 }
 
 
+/* ===== Descope Widget ===== */
+.descope-widget {
+  padding: 3vh;
+  padding-bottom: 0;
+  border: 2px solid var(--logout-border);
+  width: fit-content;
+  box-shadow: 0px 0px 5px var(--box-shadow1), 0px 0px 10px var(--box-shadow2), 0px 0px 15px var(--box-shadow3);
+}
+.descope-p {
+  margin: 1vh;
+  width: fit-content;
+}
+
+
 /*  ===== Displaying the JWT Info ===== */
 .jwt-border {
   border: 3px solid var(--jwt-border);
-  margin-bottom: 6vh;
+  box-shadow: 0px 0px 5px var(--box-shadow4), 0px 0px 20px var(--box-shadow5), 0px 0px 25px var(--box-shadow6);
   padding: 0;
 }
 .jwt-container {
@@ -145,16 +152,18 @@ p {
 
 /*  ===== The Labels ===== */
 .label-container {
-  margin-bottom: 7vh;
+  margin-bottom: 5vh;
+  padding: 0;
+  align-items: center;
 }
 .label {
   border: 2px solid var(--border-color);
   margin: 0;
   padding: 2vh;
   display: inline-block;
-  width: 30vh;
+  width: 20vh;
   vertical-align: middle;
-  font-size: 1.1em;
+  font-size: 1em;
   color: rgb(0, 130, 181);
 }
 .light-blue {
@@ -185,18 +194,15 @@ p {
 /*  ===== Logout button ===== */
 .logout-btn {
   background-color: var(--logout-bg);
-  font-size: 1.2em;
-  border: 2px solid var(--logout-border);
-  color: var(--logout-txt);
-  padding: 2vh 4vh;
-  cursor: pointer;
+  color: red;
 }
 
 
 /* Documentation at bottom */
 .doc-space {
   padding: 0;
-  margin-top: 14vh;
+  margin-top: 10vh;
+  max-width: 90vw;
 }
 .doc-box {
   flex: 1;
@@ -204,9 +210,8 @@ p {
   text-align: left;
   padding: 5vh;
   background-color: var(--docs-bg);
-  border: 2px solid var(--docs-border);
   margin: 1vh;
-  padding-bottom: 0vh;
+  padding-bottom: 4vh;
 }
 .doc-title {
   color: var(--title-color);
