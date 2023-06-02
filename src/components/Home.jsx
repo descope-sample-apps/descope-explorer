@@ -13,7 +13,7 @@ function Home({ flow, project, theme }) {
     const { logout } = useDescope()
     const [jwt, setJwt] = useState("")
     const [response, setResponse] = useState("")
-  
+
     useEffect(() => {
       if (!jwt) {
         logoutUser() 

@@ -17,6 +17,8 @@
   --logout-border: rgb(0, 130, 181);
   --docs-bg: aliceblue;
   --docs-border: rgb(0, 130, 181);
+  --navbar-btn: rgb(0, 130, 181);
+  --navbar-btn-bg: rgb(221, 240, 255);
 }
 [data-theme="dark"] {
   --title-color: rgb(62, 207, 255);
@@ -33,6 +35,8 @@
   --logout-border: rgb(61, 169, 206);
   --docs-bg: rgb(25, 25, 25);
   --docs-border: rgb(53, 128, 158);
+  --navbar-btn: rgb(235, 229, 120);
+  --navbar-btn-bg: rgb(29, 29, 29);
 }
 
 
@@ -43,6 +47,26 @@ html, body {
   height: 100%;
   color: var(--txt-color);
   background-color: var(--background);
+}
+
+
+/* ===== Navbar ===== */
+.navbar {
+  width: 100%;
+  overflow: hidden;
+  color: blue;
+}
+.navbar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  float: right;
+  margin: 4vh;
+  color: var(--navbar-btn);
+  background-color: var(--navbar-btn-bg);
+  width: 8vh;
+  height: 8vh;
+  margin-bottom: 0;
 }
 
 
@@ -73,6 +97,7 @@ p {
   from { width: 0 }
   to { width: 30vh }
 }
+
 
 /*  ===== Flex boxes ===== */
 .flex-col {
@@ -155,6 +180,7 @@ p {
 .underlined {
   text-decoration: underline;
 }
+
 
 /*  ===== Logout button ===== */
 .logout-btn {
