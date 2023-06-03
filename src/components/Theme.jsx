@@ -17,10 +17,10 @@ function Theme({ theme, setTheme }) {
 
     return (
         <>
-            {theme === "dark" ? 
-                <button className='theme-btn' onClick={() => changeTheme("light")}><DarkModeIcon /></button>
+            {theme === "light" ? 
+                <button className='theme-btn' onClick={() => changeTheme("dark")}><DarkModeIcon /></button>
                 :
-                <button className='theme-btn' onClick={() => changeTheme("dark")}><LightModeIcon /></button>
+                <button className='theme-btn' onClick={() => changeTheme("light")}><LightModeIcon /></button>
             }
         </>
     )
