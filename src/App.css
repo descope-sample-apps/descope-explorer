@@ -71,7 +71,7 @@ html, body {
   background-color: var(--navbar-btn-bg);
   width: 6vh;
   height: 6vh;
-  margin: 2vh;
+  margin: -1vh;
 }
 
 
@@ -80,9 +80,15 @@ html, body {
   color: var(--title-color);
 }
 h1 {
-  font-size: 3.5em;
+  font-size: 3.0em;
   margin: 0;
-  margin-bottom: 4vh;
+  margin: 2vh;
+  background-image: linear-gradient(84.37deg,#0081b3 2.3%,#0ff 34.46%,#6fef2d 67.18%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 p {
   font-size: 1.2em;
@@ -120,14 +126,14 @@ p {
 /* ===== Descope Widget ===== */
 .descope-widget {
   padding: 3vh;
-  padding-bottom: 0;
   border: 2px solid var(--logout-border);
   width: fit-content;
   box-shadow: 0px 0px 5px var(--box-shadow1), 0px 0px 10px var(--box-shadow2), 0px 0px 15px var(--box-shadow3);
 }
 .descope-p {
-  margin: 1vh;
+  margin: 1vh auto; 
   width: fit-content;
+  /* margin: 0 auto; */
 }
 
 
@@ -201,17 +207,16 @@ p {
 /* Documentation at bottom */
 .doc-space {
   padding: 0;
-  margin-top: 10vh;
+  margin-top: 4vh;
   max-width: 90vw;
 }
 .doc-box {
   flex: 1;
   align-items: flex-start;
   text-align: left;
-  padding: 5vh;
+  padding: 2vh;
   background-color: var(--docs-bg);
-  margin: 1vh;
-  padding-bottom: 4vh;
+  margin: 2vh;
 }
 .doc-title {
   color: var(--title-color);
@@ -227,4 +232,5 @@ p {
 .doc-txt {
   width: fit-content;
   font-size: 1em;
+  margin:0;
 }
