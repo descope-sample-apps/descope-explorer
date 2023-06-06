@@ -5,7 +5,6 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import FolderIcon from '@mui/icons-material/Folder';
 
 import Logo from "../logo.png"
-import SlackIcon from "../slack-icon.png"
 
 import "../App.css"
 
@@ -39,7 +38,7 @@ function Navbar({ theme, setTheme }) {
                         <a className="nav-link nav-space" href="#">Sign Up</a>
                     </li>
                     <li>
-                        <a className="nav-link" href="#">Join Us<img className="slack-icon" src={SlackIcon} alt="slack-icon" /></a>
+                        <a className="nav-link" href="#">Join the Slack</a>
                     </li>
                     <li>    
                         <a className="nav-link bg-gray curved" href="#"><p className="star">&#9733;</p> Star Us on GitHub</a>

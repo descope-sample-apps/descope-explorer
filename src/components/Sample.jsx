@@ -7,7 +7,7 @@ function Sample() {
     return (
       <div className='page sample'>
         <h1 className="title sample-title">Your Next Dream App</h1>
-        <p>See what You can Build through 10+ Sample Apps</p>
+        <p className='sample-tagline'>See what You can Build through 10+ Sample Apps</p>
         <div className="sample-rows">
           {SampleApps.map((sample, i) => (
             <div className="row sample-box" key={i}>
