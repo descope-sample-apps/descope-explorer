@@ -260,10 +260,10 @@ pre {
 .sample-box-text {
   text-align: left;
   color: var(--sample-des);
-  width: 100%;
 }
 .sample-box p {
-  width: fit-content;
+  width: fit-content;  
+  max-width: 100%;
   margin: 0;
 }
 .sample-link {
@@ -287,7 +287,6 @@ pre {
   margin-right: 2vh;
   color: var(--github-color);
 }
-
 
 /* ===== SDK ===== */
 .sdk-img {
