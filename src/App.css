@@ -18,13 +18,14 @@
   --navbar-btn-bg: #f4f4f4;
   --navbar-btn-border: #56a2f9;
   --navbar-btn-color: #0081b3;
+  --hamburger-color: #151515;
 }
 [data-theme="dark"] {
   --test-test: blue;
   --theme-bg: #121217;
   --theme-color: #c6c6cb;
   --sample-bg: #141416;
-  --sample-border: #303030;
+  --sample-border: #353535;
   --sample-link: rgb(107, 236, 236);
   --sample-des: #c1bfbf;
   --github-color: #ededed;
@@ -34,6 +35,7 @@
   --navbar-btn-bg: #1c1c1c;
   --navbar-btn-border: #56f9aa;
   --navbar-btn-color: gold;
+  --hamburger-color: #39e7a1;
 }
 
 
@@ -309,6 +311,7 @@ pre {
   transform: translateY(-50%);
   display: none;
   visibility: hidden;
+  color: var(--hamburger-color);
 }
 .navbar-btn {
   display: flex;
@@ -396,7 +399,7 @@ pre {
   }
   .nav-link {
     color: aliceblue;
-    margin-right: 3vh;
+    margin-right: 2vh;
     text-align: center;
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
@@ -419,12 +422,12 @@ pre {
   .navbar-btn {
     border-radius: 100px;
     border: none;
-    color: gold;
-    background-color: #191919;
-    border: 2px solid #1fc0ff;
+    color: var(--navbar-btn-color);
+    background-color: var(--navbar-btn-bg);
+    border: 2px solid var(--navbar-btn-border);
     width: 7vh;
     height: 7vh;
-    margin-right: 3vh;
+    margin-right: 2vh;
   }
   .navbar-btn-li {
     width: fit-content;
@@ -435,5 +438,8 @@ pre {
   }
   .jwt-box {
     margin-top: 2vh;
+  }
+  .example {
+    border-radius: 20px;
   }
 }
