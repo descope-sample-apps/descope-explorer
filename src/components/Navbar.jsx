@@ -51,9 +51,9 @@ function Navbar({ theme, setTheme }) {
                     </li>
                     <li className="navbar-btn-li">
                         {theme === "light" ? 
-                            <button className="navbar-btn" onClick={() => changeTheme("dark")}><LightModeIcon /></button>
+                            <button className="navbar-btn" onClick={() => changeTheme("dark")}><DarkModeIcon /></button>
                             :
-                            <button className="navbar-btn" onClick={() => changeTheme("light")}><DarkModeIcon /></button>
+                            <button className="navbar-btn" onClick={() => changeTheme("light")}><LightModeIcon /></button>
                         }
                     </li>
                 </ul>
