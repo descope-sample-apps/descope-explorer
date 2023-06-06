@@ -148,26 +148,16 @@ p {
 }
 
 /*  ===== Error ===== */
-.error {
-  background-color: rgb(20, 20, 20);
-  color: rgb(240, 240, 240);
-}
 .example {
-  height: auto;
+  border: 2px solid #0081b3;
+  width: fit-content;
   border-radius: 100px;
-  background-image: linear-gradient(#1c1c23,#1c1c23),linear-gradient(180deg,#0081b3,#0ff 47.16%,#6fef2d);
-  background-origin: border-box;
-  background-clip: padding-box,border-box;
-  box-shadow: inset 2px 2px 2px rgba(0,0,0,.8);
-  cursor: pointer;
-  background-color: transparent;
-  text-align: center;
-  outline: none;
-  padding: 2vh 4vh;
-  border: 0.09375rem solid transparent;
-  width: 50vw;
+  padding: 2vh 5vh;
+  background-color: aliceblue;
 }
-
+.copied {
+  color: #0081b3;
+}
 
 /*  ===== AuthFlow ===== */
 .authflow {
