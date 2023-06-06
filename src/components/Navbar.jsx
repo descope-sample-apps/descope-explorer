@@ -2,7 +2,8 @@ import { useState } from "react"
 
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import FolderIcon from '@mui/icons-material/Folder';
+
+import MenuIcon from '@mui/icons-material/Menu';
 
 import Logo from "../logo.png"
 
@@ -28,7 +29,7 @@ function Navbar({ theme, setTheme }) {
             <a className="logo-link" target="_blank" rel="noreferrer" href="https://www.descope.com/">
                 <img className="logo" src={Logo} alt="" />
             </a>
-            <FolderIcon className="hamburger" onClick={() => {setIsNavExpanded(!isNavExpanded)}}/>
+            <MenuIcon className="hamburger" onClick={() => {setIsNavExpanded(!isNavExpanded)}}/>
             <div className={isNavExpanded ? "navbar-menu expanded" : "navbar-menu"}>
                 <ul>
                     <li>
