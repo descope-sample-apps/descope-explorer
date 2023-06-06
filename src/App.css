@@ -36,6 +36,7 @@
   --logout-btn-bg: rgb(255, 241, 232);
   --logout-btn-color: red;
   --navbar-bg: rgb(240, 240, 240);
+  --nav-bg-mobile: #0081b3;
 }
 [data-theme="dark"] {
   --test-test: blue;
@@ -51,6 +52,7 @@
   --nav-bggray-link: #f1f1f1;
   --nav-bggray-link-dark: #f1f1f1;
   --nav-link-hover: #76ff91;
+  --nav-bg-mobile: #76ff91;
   --bg-bg: rgb(28, 28, 28);
   --navbar-btn-bg: #1c1c1c;
   --navbar-btn-border: #56f9aa;
@@ -502,6 +504,9 @@ pre {
   .bg-gray {
     border: none;
     color: var(--nav-bggray-link-dark);
+  }
+  .bg-gray:hover {
+    color: var(--nav-bg-mobile);
   }
   .navbar-btn {
     border-radius: 100px;
