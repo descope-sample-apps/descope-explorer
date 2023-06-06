@@ -25,7 +25,7 @@ function Navbar({ theme, setTheme }) {
 
     return (
         <nav className="navbar">
-            <a className="logo-link" href="#">
+            <a className="logo-link" target="_blank" rel="noreferrer" href="https://www.descope.com/">
                 <img className="logo" src={Logo} alt="" />
             </a>
             <FolderIcon className="hamburger" onClick={() => {setIsNavExpanded(!isNavExpanded)}}/>
