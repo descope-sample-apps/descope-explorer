@@ -32,16 +32,16 @@ function Navbar({ theme, setTheme }) {
             <div className={isNavExpanded ? "navbar-menu expanded" : "navbar-menu"}>
                 <ul>
                     <li>
-                        <a className="nav-link nav-space" href="#">Docs</a>
+                        <a target="_blank" rel="noreferrer" className="nav-link nav-space" href="https://docs.descope.com/">Docs</a>
                     </li>
                     <li>
-                        <a className="nav-link nav-space" href="#">Sign Up</a>
+                        <a target="_blank" rel="noreferrer" className="nav-link nav-space" href="https://www.descope.com/sign-up">Sign Up</a>
                     </li>
                     <li>
-                        <a className="nav-link" href="#">Join the Slack</a>
+                        <a target="_blank" rel="noreferrer" className="nav-link" href="https://authtown.slack.com/">Join the Slack</a>
                     </li>
                     <li>    
-                        <a className={theme==="light" ? "nav-link bg-gray curved": "nav-link bg-gray curved gradient-border"} href="#"><p className="star">&#9733;</p> Star Us on GitHub</a>
+                        <a target="_blank" rel="noreferrer" className={theme==="light" ? "nav-link bg-gray curved": "nav-link bg-gray curved gradient-border"} href="https://github.com/descope-sample-apps/descope-explorer/"><p className="star">&#9733;</p> Star Us on GitHub</a>
                     </li>
                     <li className="navbar-btn-li">
                         {theme === "light" ? 

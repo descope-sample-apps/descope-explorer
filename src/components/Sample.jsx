@@ -13,7 +13,7 @@ function Sample({ theme }) {
             <div className="row sample-box" key={i}>
               <GitHubIcon className='github-icon'/>
               <div className='sample-box-text'>
-                <a href="#" className="sample-link">{sample.title}</a>
+                <a href={sample.link} className="sample-link">{sample.title}</a>
                 <p className="sample-des">{sample.des}</p>
               </div>
             </div>
@@ -27,55 +27,68 @@ function Sample({ theme }) {
 const SampleApps = [
   {
     title: "super-sso",
-    des: "Descope Open ID Connect Sample App"
+    des: "Descope Open ID Connect Sample App",
+    link: ""
   },
   {
     title: "auth0-passkey-implementation",
-    des: "Descope Open ID Connect Sample App"
+    des: "Descope Open ID Connect Sample App",
+    link: ""
   },
   {
     title: "b2c-retail-sample-app",
-    des: "Welcome to Tee-Hee-Tees"
+    des: "Welcome to Tee-Hee-Tees",
+    link: ""
   },
   {
     title: "b2b-react-sample-app",
-    des: "b2b-react-sample-app"
+    des: "b2b-react-sample-app",
+    link: ""
   },
   {
     title: "passportjs_sample",
-    des: "Descope Open ID Connect Sample App"
+    des: "Descope Open ID Connect Sample App",
+    link: ""
   },
   {
     title: "Super SSO",
-    des: "Todo App Sample App"
+    des: "Todo App Sample App",
+    link: ""
   },
   {
     title: "flask-sample-app",
-    des: "Flask Sample App + Descope Auth"
+    des: "Flask Sample App + Descope Auth",
+    link: ""
   },
   {
     title: "flask-react-sample-app",
-    des: "Flask + Descope Authentication (and a little bit of React)"
+    des: "Flask + Descope Authentication (and a little bit of React)",
+    link: ""
   },
   {
     title: "zero-to-auth",
-    des: "zero-to-auth App"
+    des: "zero-to-auth App",
+    link: ""
   },
   {
     title: "next-js-sample-app",
-    des: "Next.s + Descope authentication"
+    des: "Next.s + Descope authentication",
+    link: ""
   },
   {
     title: "descope-escape-room",
-    des: "Escape Room App"
+    des: "Escape Room App",
+    link: ""
   },
   {
     title: "descope-html-sample-app",
-    des: "Descope + HTML sample app"
+    des: "Descope + HTML sample app",
+    link: ""
   },
   {
     title: "swift-sample-app",
-    des: "Swift + Descope authentication"
+    des: "Swift + Descope authentication",
+    link: ""
   }
 ] 
 
