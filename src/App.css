@@ -150,10 +150,10 @@ p {
 /*  ===== Error ===== */
 .example {
   border: 2px solid #0081b3;
-  width: fit-content;
+  width: 50vw;
   border-radius: 100px;
   padding: 2vh 5vh;
-  background-color: aliceblue;
+  background-color: rgb(246, 251, 255);
 }
 .copied {
   color: #0081b3;
