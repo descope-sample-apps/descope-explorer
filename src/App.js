@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Introduction from './components/Introduction';
 import BottomNav from './components/BottomNav';
 import Sample from './components/Sample';
+import SDKShow from './components/SDKs';
 
 function App() {
   const queryParameters = new URLSearchParams(window.location.search)
@@ -24,6 +25,7 @@ function App() {
             <AuthFlow flow={flow} theme={theme} />
           </AuthProvider>
           <Sample theme={theme}/>
+          <SDKShow theme={theme}/>
           <BottomNav />
         </>
         :

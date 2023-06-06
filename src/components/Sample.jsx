@@ -37,7 +37,7 @@ const SampleApps = [
   },
   {
     title: "passportjs_sample",
-    des: "Descope Open ID Connect Sample App",
+    des: "Todo App Sample App",
     link: "https://github.com/descope-sample-apps/passportjs_sample"
   },
   {
@@ -52,7 +52,7 @@ const SampleApps = [
   },
   {
     title: "b2b-sample-app",
-    des: "b2b sample app",
+    des: "B2B Sample app",
     link: "https://github.com/descope-sample-apps/b2b-sample-app"
   },
   {
@@ -67,7 +67,7 @@ const SampleApps = [
   },
   {
     title: "next-js-sample-app",
-    des: "Next.s + Descope authentication",
+    des: "Next Descope Example",
     link: "https://github.com/descope-sample-apps/next-js-sample-app"
   },
   {
@@ -77,12 +77,12 @@ const SampleApps = [
   },
   {
     title: "descope-html-sample-app",
-    des: "Descope + HTML sample app",
+    des: "HTML Sample App",
     link: "https://github.com/descope-sample-apps/descope-html-sample-app"
   },
   {
     title: "swift-sample-app",
-    des: "Swift + Descope authentication",
+    des: "Swift Sample App",
     link: "https://github.com/descope-sample-apps/swift-sample-app"
   }
 ] 

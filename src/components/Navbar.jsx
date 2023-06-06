@@ -4,6 +4,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 import Logo from "../logo.png"
 
@@ -29,7 +30,11 @@ function Navbar({ theme, setTheme }) {
             <a className="logo-link" target="_blank" rel="noreferrer" href="https://www.descope.com/">
                 <img className="logo" src={Logo} alt="" />
             </a>
-            <MenuIcon className="hamburger" onClick={() => {setIsNavExpanded(!isNavExpanded)}}/>
+            {isNavExpanded ? 
+                <CloseIcon className="hamburger" onClick={() => {setIsNavExpanded(!isNavExpanded)}}/>
+                :
+                <MenuIcon className="hamburger" onClick={() => {setIsNavExpanded(!isNavExpanded)}}/>
+            }
             <div className={isNavExpanded ? "navbar-menu expanded" : "navbar-menu"}>
                 <ul>
                     <li>
@@ -42,7 +47,7 @@ function Navbar({ theme, setTheme }) {
                         <a target="_blank" rel="noreferrer" className="nav-link" href="https://authtown.slack.com/">Join the Slack</a>
                     </li>
                     <li>    
-                        <a target="_blank" rel="noreferrer" className={theme==="light" ? "nav-link bg-gray curved": "nav-link bg-gray curved gradient-border"} href="https://github.com/descope-sample-apps/descope-explorer/"><p className="star">&#9733;</p> Star Us on GitHub</a>
+                        <a target="_blank" rel="noreferrer" className={theme==="light" ? "nav-link bg-gray curved light-hover": "nav-link bg-gray curved gradient-border"} href="https://github.com/descope-sample-apps/descope-explorer/"><p className="star">&#9733;</p> Star Us on GitHub</a>
                     </li>
                     <li className="navbar-btn-li">
                         {theme === "light" ? 
