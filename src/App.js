@@ -19,11 +19,11 @@ function App() {
       {project && flow ? 
         <>
           <Navbar theme={theme} setTheme={setTheme} />
-          <Introduction />
+          <Introduction theme={theme}/>
           <AuthProvider projectId={project}>
             <AuthFlow flow={flow} theme={theme} />
           </AuthProvider>
-          <Sample />
+          <Sample theme={theme}/>
           <BottomNav />
         </>
         :

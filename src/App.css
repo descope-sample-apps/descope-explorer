@@ -4,10 +4,36 @@
 
 /*  ===== CSS Variables ===== */
 :root {
-  --test-test: blue
+  --test-test: blue;
+  --theme-bg: white;
+  --theme-color: #151515;
+  --sample-bg: #f3faff;
+  --sample-border: rgb(209, 231, 238);
+  --sample-link: #1c1c1c;
+  --sample-des: #125d92;
+  --github-color: #181818;
+  --auth-border: #0081b3;
+  --nav-link: #191919;
+  --bg-bg: rgb(0, 139, 194);
+  --navbar-btn-bg: #f4f4f4;
+  --navbar-btn-border: #56a2f9;
+  --navbar-btn-color: #0081b3;
 }
 [data-theme="dark"] {
-  --test-test: blue
+  --test-test: blue;
+  --theme-bg: #121217;
+  --theme-color: #c6c6cb;
+  --sample-bg: #141416;
+  --sample-border: #303030;
+  --sample-link: rgb(107, 236, 236);
+  --sample-des: #c1bfbf;
+  --github-color: #ededed;
+  --auth-border: rgb(0, 255, 225);
+  --nav-link: #f1f1f1;
+  --bg-bg: rgb(28, 28, 28);
+  --navbar-btn-bg: #1c1c1c;
+  --navbar-btn-border: #56f9aa;
+  --navbar-btn-color: gold;
 }
 
 
@@ -18,6 +44,8 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: var(--theme-bg);
+  color: var(--theme-color);
 }
 
 
@@ -81,7 +109,6 @@ p {
   margin-bottom: 3vh;
 }
 
-
 /*  ===== Error ===== */
 .error {
   background-color: rgb(20, 20, 20);
@@ -110,7 +137,7 @@ p {
   justify-content: center;
 }
 .flow-shown {
-  border: 2px solid #0081b3;
+  border: 2px solid var(--auth-border);
   padding: 1vh 4vh;
   border-radius: 15px;
 }
@@ -163,7 +190,7 @@ pre {
 /*  ===== Bottom Navbar ===== */
 .bottom-nav {
   margin-top: 12vh;
-  background: black
+  background: #121217
 }
 .bottom-title {
   margin: 0;
@@ -189,20 +216,20 @@ pre {
 }
 .sample-box {
   width: fit-content;
-  background-color: #f3faff;
+  background-color: var(--sample-bg);
   padding: 2vh 3vh;
   padding-right: 4vh;
   margin: 1vh;
   border-radius: 10px;
   justify-content: flex-start;
-  border: 1px solid rgb(209, 231, 238);
+  border: 1px solid var(--sample-border);
 }
 .sample-tagline {
   margin-bottom: 4vh;
 }
 .sample-box-text {
   text-align: left;
-  color: #125d92;
+  color: var(--sample-des);
 }
 .sample-box p {
   width: fit-content;
@@ -211,18 +238,23 @@ pre {
 .sample-link {
   font-size: 1em;
   text-decoration: none;
-  color: #1c1c1c;
+  color: var(--sample-link);
 }
 .sample-des {
   font-size: 1em;
 }
 .sample-title {
   font-size: 2.4em;
+  color: #0081b3;
+}
+.second-title {
+  color: #0ed8d2;
 }
 .github-icon {
   transform: scale(1.3);
   height: auto;
   margin-right: 2vh;
+  color: var(--github-color);
 }
 
 
@@ -232,7 +264,7 @@ pre {
   height: 11vh;
   padding: 2vh;
   padding-left: 0.9vh;
-  background-color: rgb(11, 11, 11);
+  background-color: #121217;
   border-bottom-right-radius: 100%;
 }
 .logo {
@@ -246,7 +278,6 @@ pre {
   display: flex;
   align-items: center;
   width: 100%;
-  color: black;
 }
 .navbar-menu {
   margin-left: auto;
@@ -268,7 +299,7 @@ pre {
   display: flex;
   align-items: center;
   width: fit-content;
-  color: #191919;
+  color: var(--nav-link);
 }
 .hamburger {
   cursor: pointer;
@@ -283,14 +314,14 @@ pre {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f4f4f4;
+  background-color: var(--navbar-btn-bg);
   border-radius: 100px;
-  border: 0.09375rem solid #56a2f9;
+  border: 0.09375rem solid var(--navbar-btn-border);
   /* box-shadow: 0px 0px 10px #56a2f9; */
   height: 5.5vh;
   width: 5.5vh;
   margin-right: 2vh;
-  color: #0081b3;
+  color: var(--navbar-btn-color);
 }
 .star {
   margin: 0;
@@ -303,7 +334,6 @@ pre {
 }
 .nav-space {
   margin-right: 1vh;
-  color: #1c1c1c;
 }
 .slack-icon {
   width: 3vh;
@@ -311,12 +341,29 @@ pre {
   margin-left: 11px;
 }
 .bg-gray {
-  background-color: rgb(0, 139, 194);
+  background-color: var(--bg-bg);
   border: 2px solid rgb(163, 229, 255);
   color: rgb(247, 247, 247);
   padding-left: 3vh;
   padding-right: 3vh;
   /* box-shadow: 0px 0px 10px #56a2f9; */
+}
+
+
+/*  ===== Gradient Border ===== */
+.gradient-border {
+  background-image: linear-gradient(#1c1c23,#1c1c23),linear-gradient(180deg,#0081b3,#0ff 47.16%,#6fef2d);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: inset 2px 2px 2px rgba(0,0,0,.8);
+  transition-property: color,border-color,box-shadow;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  border: 0.09375rem solid transparent;
 }
 
 

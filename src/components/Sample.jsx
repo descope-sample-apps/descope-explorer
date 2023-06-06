@@ -2,11 +2,11 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import "../App.css"
 
 
-function Sample() {
+function Sample({ theme }) {
 
     return (
       <div className='page sample'>
-        <h1 className="title sample-title">Your Next Dream App</h1>
+        <h1 className={theme==="light" ? "title sample-title": "title sample-title second-title"}>Your Next Dream App</h1>
         <p className='sample-tagline'>See what You can Build through 10+ Sample Apps</p>
         <div className="sample-rows">
           {SampleApps.map((sample, i) => (

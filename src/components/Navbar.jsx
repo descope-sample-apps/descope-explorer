@@ -41,7 +41,7 @@ function Navbar({ theme, setTheme }) {
                         <a className="nav-link" href="#">Join the Slack</a>
                     </li>
                     <li>    
-                        <a className="nav-link bg-gray curved" href="#"><p className="star">&#9733;</p> Star Us on GitHub</a>
+                        <a className={theme==="light" ? "nav-link bg-gray curved": "nav-link bg-gray curved gradient-border"} href="#"><p className="star">&#9733;</p> Star Us on GitHub</a>
                     </li>
                     <li className="navbar-btn-li">
                         {theme === "light" ? 
