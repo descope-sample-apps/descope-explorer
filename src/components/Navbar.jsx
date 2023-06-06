@@ -6,7 +6,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
-import Logo from "../logo.png"
+import Logo from "../assets/logo.png"
 
 import "../App.css"
 
