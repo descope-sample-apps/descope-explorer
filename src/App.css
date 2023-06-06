@@ -14,11 +14,29 @@
   --github-color: #181818;
   --auth-border: #0081b3;
   --nav-link: #191919;
+  --nav-bggray-link: white;
+  --nav-bggray-link-dark: #151515;
+  --nav-link-hover: #0081b3;
   --bg-bg: rgb(0, 139, 194);
   --navbar-btn-bg: #f4f4f4;
   --navbar-btn-border: #56a2f9;
   --navbar-btn-color: #0081b3;
   --hamburger-color: #151515;
+  --gosdk-shadow: rgb(96, 223, 255);
+  --node-shadow: rgb(60, 228, 152);
+  --python-shadow: rgb(187, 187, 0);
+  --react-shadow: rgb(23, 228, 232);
+  --web-shadow: rgb(210, 210, 3);
+  --swift-shadow: rgb(255, 119, 0);
+  --flutter-shadow: rgb(44, 195, 255);
+  --jwt-bg: #f6f6f6;
+  --jwt-border-color: rgb(226, 226, 226);
+  --jwt-color1: #ba09e6;
+  --jwt-color2: rgb(169, 76, 0);
+  --logout-btn-bg: rgb(255, 241, 232);
+  --logout-btn-color: red;
+  --navbar-bg: rgb(240, 240, 240);
+  --nav-bg-mobile: #0081b3;
 }
 [data-theme="dark"] {
   --test-test: blue;
@@ -31,11 +49,29 @@
   --github-color: #ededed;
   --auth-border: rgb(0, 255, 225);
   --nav-link: #f1f1f1;
+  --nav-bggray-link: #f1f1f1;
+  --nav-bggray-link-dark: #f1f1f1;
+  --nav-link-hover: #76ffda;
+  --nav-bg-mobile: #76ffda;
   --bg-bg: rgb(28, 28, 28);
   --navbar-btn-bg: #1c1c1c;
   --navbar-btn-border: #56f9aa;
   --navbar-btn-color: gold;
   --hamburger-color: #39e7a1;
+  --gosdk-shadow: rgb(45, 143, 255);
+  --node-shadow: rgb(25, 255, 128);
+  --python-shadow: rgb(202, 202, 14);
+  --react-shadow: rgb(0, 242, 255);
+  --web-shadow: rgb(181, 169, 1);
+  --swift-shadow: rgb(231, 111, 6);
+  --flutter-shadow: rgb(0, 171, 239);
+  --jwt-bg: #171717;
+  --jwt-border-color: rgb(78, 78, 78);
+  --jwt-color1: #e57eff;
+  --jwt-color2: rgb(255, 161, 84);
+  --logout-btn-bg: rgb(33, 33, 33);
+  --logout-btn-color: rgb(255, 59, 59);
+  --navbar-bg: rgb(32, 32, 32);
 }
 
 
@@ -112,26 +148,16 @@ p {
 }
 
 /*  ===== Error ===== */
-.error {
-  background-color: rgb(20, 20, 20);
-  color: rgb(240, 240, 240);
-}
 .example {
-  height: auto;
-  border-radius: 100px;
-  background-image: linear-gradient(#1c1c23,#1c1c23),linear-gradient(180deg,#0081b3,#0ff 47.16%,#6fef2d);
-  background-origin: border-box;
-  background-clip: padding-box,border-box;
-  box-shadow: inset 2px 2px 2px rgba(0,0,0,.8);
-  cursor: pointer;
-  background-color: transparent;
-  text-align: center;
-  outline: none;
-  padding: 2vh 4vh;
-  border: 0.09375rem solid transparent;
+  border: 2px solid #0081b3;
   width: 50vw;
+  border-radius: 100px;
+  padding: 2vh 5vh;
+  background-color: rgb(246, 251, 255);
 }
-
+.copied {
+  color: #0081b3;
+}
 
 /*  ===== AuthFlow ===== */
 .authflow {
@@ -147,11 +173,11 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: red;
+  color: var(--logout-btn-color);
   border: none;
   width: 6vh;
   height: 6vh;
-  background-color: rgb(255, 241, 232);
+  background-color: var(--logout-btn-bg);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -172,8 +198,8 @@ pre {
   align-items: stretch;
   text-align: left;
   overflow: auto;
-  border: 1.5px solid rgb(226, 226, 226);
-  background-color: #f6f6f6;
+  border: 1.5px solid var(--jwt-border-color);
+  background-color: var(--jwt-bg);
   padding: 3vh;
   font-size: 0.95em;
   max-width: 100%;
@@ -182,10 +208,10 @@ pre {
   height: 85vh;
 }
 .pre1 {
-  color: #ba09e6;
+  color: var(--jwt-color1);
 }
 .pre2 {
-  color: rgb(169, 76, 0);
+  color: var(--jwt-color2);
 }
 
 
@@ -226,6 +252,9 @@ pre {
   justify-content: flex-start;
   border: 1px solid var(--sample-border);
 }
+.sample-box:hover {
+  box-shadow: 0px 0px 5px var(--sample-border);
+}
 .sample-tagline {
   margin-bottom: 4vh;
 }
@@ -258,6 +287,46 @@ pre {
   margin-right: 2vh;
   color: var(--github-color);
 }
+
+
+/* ===== SDK ===== */
+.sdk-img {
+  margin: 1.5vh;
+  width: 6vw;
+  height: auto;
+  transition: transform .2s;
+}
+.sdk-img:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.gosdk-size {
+  width: 8vw;
+}
+.nodesdk-size {
+  width: 8vw;
+}
+.gosdk {
+  -webkit-filter: drop-shadow(0px 0px 30px var(--gosdk-shadow));
+}
+.nodesdk {
+  -webkit-filter: drop-shadow(0px 0px 30px var(--node-shadow));
+}
+.pythonsdk {
+  -webkit-filter: drop-shadow(0px 0px 30px var(--python-shadow));
+}
+.reactsdk {
+  -webkit-filter: drop-shadow(0px 0px 30px var(--react-shadow));
+}
+.websdk {
+  -webkit-filter: drop-shadow(0px 0px 30px var(--web-shadow));
+}
+.swiftsdk {
+  -webkit-filter: drop-shadow(0px 0px 30px var(--swift-shadow));
+}
+.fluttersdk {
+  -webkit-filter: drop-shadow(0px 0px 30px var(--flutter-shadow));
+}
+
 
 
 /*  ===== Navbar ===== */
@@ -303,6 +372,9 @@ pre {
   width: fit-content;
   color: var(--nav-link);
 }
+.nav-link:hover {
+  color: var(--nav-link-hover);
+}
 .hamburger {
   cursor: pointer;
   position: absolute;
@@ -326,6 +398,9 @@ pre {
   box-shadow: 0px 0px 5px rgb(91, 141, 154);
   color: var(--navbar-btn-color);
 }
+.light-hover:hover {
+  color: rgb(255, 228, 77);
+}
 .star {
   margin: 0;
   padding-top: 0;
@@ -346,7 +421,7 @@ pre {
 .bg-gray {
   background-color: var(--bg-bg);
   border: 2px solid rgb(163, 229, 255);
-  color: rgb(247, 247, 247);
+  color: var(--nav-bggray-link);
   padding-left: 3vh;
   padding-right: 3vh;
   /* box-shadow: 0px 0px 10px #56a2f9; */
@@ -399,10 +474,10 @@ pre {
     margin-right: 0;
   }
   .nav-link {
-    color: aliceblue;
+    color: var(--nav-link);
     margin-right: 2vh;
     text-align: center;
-    background-color: rgb(32, 32, 32);
+    background-color: var(--navbar-bg);
     border-radius: 10px;
     padding: 3vh 5vh;
   }
@@ -418,7 +493,10 @@ pre {
   }
   .bg-gray {
     border: none;
-    color: aliceblue;
+    color: var(--nav-bggray-link-dark);
+  }
+  .bg-gray:hover {
+    color: var(--nav-bg-mobile);
   }
   .navbar-btn {
     border-radius: 100px;

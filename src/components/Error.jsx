@@ -8,11 +8,11 @@ function Error() {
   
     return (
       <div className='page error fullscreen'>
-        <h1 className='gradient'>Hmmmmm</h1>
+        <h1 className='title'>Hmmmmm</h1>
         <p>Please make sure the URL is correctly formatted with the right <span>project id</span> and <span>flow id</span>.</p>
         <p>Here's an example (for localhost 3000): </p>
         <p className='example' onClick={() => copy(exampleText)}>{exampleText}</p>
-        <p className={value && "gradient"}>{value ? "Copied": "Click to Copy"}</p>
+        <p className={value && "copied"}>{value ? "Copied": "Click to Copy"}</p>
       </div>
     )
 }
