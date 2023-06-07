@@ -119,12 +119,11 @@ html, body {
   -moz-text-fill-color: transparent;
 }
 h1, p {
-  width: 70vw;
-  word-wrap: break-word;
+  max-width: 90%;
 }
 h1 {
   margin: 0;
-  font-size: 3em;
+  font-size: 3.1em;
   margin-bottom: 3vh;
 }
 p {
@@ -163,6 +162,7 @@ p {
 .authflow {
   padding-top: 3vh;
   justify-content: center;
+  width: 100%;
 }
 .flow-shown {
   border: 2px solid var(--auth-border);
@@ -217,7 +217,7 @@ pre {
 
 /*  ===== Bottom Navbar ===== */
 .bottom-nav {
-  margin-top: 12vh;
+  margin-top: 13vh;
   background: #121217
 }
 .bottom-title {
@@ -232,7 +232,7 @@ pre {
 /*  ===== Sample ===== */
 .sample {
   width: 100%;
-  padding-top: 7vh;
+  padding-top: 9vh;
 }
 .sample-rows {
   width: 90vw;
@@ -263,7 +263,8 @@ pre {
   color: var(--sample-des);
 }
 .sample-box p {
-  width: fit-content;
+  width: fit-content;  
+  max-width: 100%;
   margin: 0;
 }
 .sample-link {
@@ -287,7 +288,6 @@ pre {
   margin-right: 2vh;
   color: var(--github-color);
 }
-
 
 /* ===== SDK ===== */
 .sdk-img {
@@ -399,7 +399,7 @@ pre {
   color: var(--navbar-btn-color);
 }
 .light-hover:hover {
-  color: rgb(255, 228, 77);
+  color: rgb(88, 222, 255);
 }
 .star {
   margin: 0;
@@ -510,6 +510,9 @@ pre {
   }
   .navbar-btn-li {
     width: fit-content;
+  }
+  .light-hover {
+    box-shadow: 0px 0px 5px rgba(0, 124, 200);
   }
   pre { 
     max-width: 90vw;
