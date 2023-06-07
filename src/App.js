@@ -24,8 +24,8 @@ function App() {
           <AuthProvider projectId={project}>
             <AuthFlow flow={flow} theme={theme} />
           </AuthProvider>
-          <Sample theme={theme}/>
           <SDKShow theme={theme}/>
+          <Sample theme={theme}/>
           <BottomNav />
         </>
         :

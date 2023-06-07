@@ -217,7 +217,7 @@ pre {
 
 /*  ===== Bottom Navbar ===== */
 .bottom-nav {
-  margin-top: 12vh;
+  margin-top: 11vh;
   background: #121217
 }
 .bottom-title {
@@ -232,7 +232,7 @@ pre {
 /*  ===== Sample ===== */
 .sample {
   width: 100%;
-  padding-top: 7vh;
+  padding-top: 9vh;
 }
 .sample-rows {
   width: 90vw;
