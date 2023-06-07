@@ -153,10 +153,12 @@ p {
   border-radius: 100px;
   padding: 2vh 5vh;
   background-color: rgb(246, 251, 255);
+  word-wrap: break-word;
 }
 .copied {
   color: #0081b3;
 }
+
 
 /*  ===== AuthFlow ===== */
 .authflow {
@@ -217,7 +219,7 @@ pre {
 
 /*  ===== Bottom Navbar ===== */
 .bottom-nav {
-  margin-top: 13vh;
+  margin-top: 15vh;
   background: #121217
 }
 .bottom-title {
@@ -463,12 +465,29 @@ pre {
     margin-bottom: 3px;
     width: 100%;
   }
-  .navbar-menu li {
+  .expanded li {
     display: flex;
     flex-direction: column;
     margin-top: 5px;    
     width: 100%;
     align-items: flex-end;
+    position: relative;
+    left: 50%;
+    animation-name: slideleft;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes slideleft {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
   .nav-space {
     margin-right: 0;
