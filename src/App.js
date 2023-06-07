@@ -11,7 +11,7 @@ import SDKShow from './components/SDKs';
 
 function App() {
   const queryParameters = new URLSearchParams(window.location.search)
-  const project = queryParameters.get("project")
+  const project = queryParameters.get("project") || "P2QZZJhnbALQo5FSNKRi0KAHHRz6"
   const flow = queryParameters.get("flow") || "sign-up-or-in"
   const [theme, setTheme] = useState(queryParameters.get("theme") || "light")
 
