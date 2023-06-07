@@ -162,6 +162,7 @@ p {
 .authflow {
   padding-top: 3vh;
   justify-content: center;
+  width: 100%;
 }
 .flow-shown {
   border: 2px solid var(--auth-border);
@@ -522,5 +523,8 @@ pre {
   }
   .example {
     border-radius: 20px;
+  }
+  .flow-shown {
+    border: none;
   }
 }
