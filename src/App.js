@@ -20,7 +20,7 @@ function App() {
 
   const [noError, setNoError] = useState(currTheme === "light" || "dark")
   const [theme, setTheme] = useState(currTheme || "light")
-
+ 
   return (
     <>
       {project && flow && noError ? 
