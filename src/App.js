@@ -12,7 +12,7 @@ import SDKShow from './components/SDKs';
 function App() {
   const defaultProjectId = "P2QZZJhnbALQo5FSNKRi0KAHHRz6"
   const queryParameters = new URLSearchParams(window.location.search)
-  const project = queryParameters.get("project")
+  const project = queryParameters.get("project") || defaultProjectId
 
   const currTheme = queryParameters.get("theme")
   const flow = queryParameters.get("flow") || "sign-up-or-in"
