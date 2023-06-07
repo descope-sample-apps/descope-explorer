@@ -39,7 +39,6 @@ function AuthFlow({ flow, theme, setNoError }) {
       {isAuthenticated &&  
         <button className='logout-btn' onClick={logout}><Replay /></button>
       }
-      
       { isAuthenticated &&
         (
           <>
