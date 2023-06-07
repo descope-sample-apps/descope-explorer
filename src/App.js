@@ -18,7 +18,7 @@ function App() {
   const currTheme = queryParameters.get("theme")
   const flow = queryParameters.get("flow") || "sign-up-or-in"
 
-  const [noError, setNoError] = useState(currTheme === "light" || "dark")
+  const [noError, setNoError] = useState(currTheme === "light" || currTheme === "dark")
   const [theme, setTheme] = useState(currTheme || "light")
  
   return (
