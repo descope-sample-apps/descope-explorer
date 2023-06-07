@@ -3,7 +3,6 @@ import "../App.css"
 
 
 function Sample({ theme }) {
-
     return (
       <div className='page sample'>
         <h1 className={theme==="light" ? "title sample-title": "title sample-title second-title"}>Your Next Dream App</h1>
