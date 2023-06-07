@@ -10,40 +10,32 @@ import Sample from './components/Sample';
 import SDKShow from './components/SDKs';
 
 function App() {
-  const queryParameters = new URLSearchParams(window.location.search)
-
-  const flow = queryParameters.get("flow") || "sign-up-or-in"
-  const [theme, setTheme] = useState(queryParameters.get("theme") || "light")
-
   const defaultProjectId = "P2QZZJhnbALQo5FSNKRi0KAHHRz6"
-  const project_param = queryParameters.get("project")
-  const project = project_param || queryParameters.get("default-project")
-  const url = new URL(window.location.href)
 
-  if(!project_param) {
-    url.searchParams.set('default-project', defaultProjectId)
-  } else {
-    url.searchParams.delete('default-project')
-  }
+  const queryParameters = new URLSearchParams(window.location.search)
+  const project = queryParameters.get("project")
 
-  const search_params = url.searchParams.toString();
-  window.history.pushState(search_params, "Explorer", url.toString()); // adds an entry to the browser's session history stack.
+  const currTheme = queryParameters.get("theme")
+  const flow = queryParameters.get("flow") || "sign-up-or-in"
+
+  const [noError, setNoError] = useState(currTheme === "light" || "dark")
+  const [theme, setTheme] = useState(currTheme || "light")
 
   return (
     <>
-      {project && flow ? 
+      {project && flow && noError ? 
         <>
           <Navbar theme={theme} setTheme={setTheme} />
           <Introduction theme={theme}/>
           <AuthProvider projectId={project}>
-            <AuthFlow flow={flow} theme={theme} />
+            <AuthFlow flow={flow} theme={theme} setNoError={setNoError} />
           </AuthProvider>
           <SDKShow theme={theme}/>
           <Sample theme={theme}/>
           <BottomNav />
         </>
         :
-        <Error />
+        <Error defaultProjectId={defaultProjectId} flow={flow} />
       }
     </>
   )

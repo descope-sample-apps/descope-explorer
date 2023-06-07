@@ -22,7 +22,7 @@ function Navbar({ theme, setTheme }) {
         var url = new URL(window.location.href)
         url.searchParams.set('theme', mode)
         window.location.replace(url.toString()) 
-        setTheme(mode)
+         setTheme(mode)
     }
 
     return (

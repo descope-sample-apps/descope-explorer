@@ -5,7 +5,7 @@ import { Descope } from '@descope/react-sdk'
 import Replay from '@mui/icons-material/Replay';
 
 
-function AuthFlow({ flow, theme }) {
+function AuthFlow({ flow, theme, setNoError }) {
   const { isAuthenticated } = useSession()
   const { logout } = useDescope()
   const [jwt, setJwt] = useState("")
@@ -58,27 +58,25 @@ function AuthFlow({ flow, theme }) {
           </>
         )
       }
-
-      { !isAuthenticated && (
-          <div className='flow-shown'>
-            {theme === "light" ?
-              <Descope
-                flowId={flow} 
-                onSuccess = {(e) => setJWTs(e)}
-                onError={(e) => console.log('Could not log in!')}
-                theme="light"
-              /> 
-              :
-              <Descope
-                flowId={flow} 
-                onSuccess = {(e) => setJWTs(e)}
-                onError={(e) => console.log('Could not log in!')}
-                theme="dark"
-              /> 
-            }
-          </div>
-        )
-      }
+      {!isAuthenticated && (
+        <div className='flow-shown'>
+          {theme === "light" ?
+            <Descope
+              flowId={flow} 
+              onSuccess = {(e) => setJWTs(e)}
+              onError={(e) => setNoError(false)}
+              theme="light"
+            /> 
+            :
+            <Descope
+              flowId={flow} 
+              onSuccess = {(e) => setJWTs(e)}
+              onError={(e) => setNoError(false)}
+              theme="dark"
+            /> 
+          }
+        </div>
+      )}
     </div>
   )
 }

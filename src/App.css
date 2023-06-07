@@ -37,6 +37,8 @@
   --logout-btn-color: red;
   --navbar-bg: rgb(240, 240, 240);
   --nav-bg-mobile: #0081b3;
+  --example-bg: rgb(246, 251, 255);
+  --error-border: #0081b3;
 }
 [data-theme="dark"] {
   --test-test: blue;
@@ -72,6 +74,8 @@
   --logout-btn-bg: rgb(33, 33, 33);
   --logout-btn-color: rgb(255, 59, 59);
   --navbar-bg: rgb(32, 32, 32);
+  --example-bg: rgb(21, 21, 21);
+  --error-border: rgb(107, 236, 236);
 }
 
 
@@ -147,23 +151,31 @@ p {
 }
 
 /*  ===== Error ===== */
-.example {
-  border: 2px solid #0081b3;
-  width: 60vw;
-  border-radius: 100px;
-  padding: 2vh 5vh;
-  background-color: rgb(246, 251, 255);
-  word-wrap: break-word;
+.error-title {
+  color: var(--error-border);
 }
-.copied {
-  color: #006a94;
+.example {
+  border: 2px solid var(--error-border);
+  width: fit-content;
+  border-radius: 100px;
+  padding: 3vh 5vh;
+  background-color: var(--example-bg);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  word-break:break-all;
+}
+.copy-icon {
+  margin-left: 2vw;
+  height: 100%;
 }
 .error-txt {
   max-width: 70%;
   line-height: 1.8em;
 }
 .error-blue {
-  color: #006a94;
+  color: var(--sample-link);
 }
 
 
@@ -549,5 +561,11 @@ pre {
   }
   .example {
     border-radius: 20px;
+    flex-wrap: wrap;
+    width: 65vw;
+  }
+  .copy-icon {
+    margin: 0;
+    margin-top: 2vh;
   }
 }
