@@ -149,14 +149,21 @@ p {
 /*  ===== Error ===== */
 .example {
   border: 2px solid #0081b3;
-  width: 50vw;
+  width: 60vw;
   border-radius: 100px;
   padding: 2vh 5vh;
   background-color: rgb(246, 251, 255);
   word-wrap: break-word;
 }
 .copied {
-  color: #0081b3;
+  color: #006a94;
+}
+.error-txt {
+  max-width: 70%;
+  line-height: 1.8em;
+}
+.error-blue {
+  color: #006a94;
 }
 
 
