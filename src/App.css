@@ -568,4 +568,7 @@ pre {
     margin: 0;
     margin-top: 2vh;
   }
+  .flow-shown {
+    width: 70vw;
+  }
 }
