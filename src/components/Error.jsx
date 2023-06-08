@@ -1,18 +1,26 @@
 import '../App.css';
 import { useCopyToClipboard } from 'usehooks-ts'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import CheckIcon from '@mui/icons-material/Check';
 
 
-function Error() {
+function Error({defaultProjectId, flow}) {
     const [value, copy] = useCopyToClipboard()
-    const exampleText = "http://localhost:3000/?project=PROJECT_ID&flow=FLOW_ID&theme=light"
+    const exampleText = `https://descope-explorer.com/?project=${defaultProjectId}&flow=${flow}&theme=dark`
   
     return (
       <div className='page error fullscreen'>
-        <h1 className='title'>Hmmmmm</h1>
-        <p>Please make sure the URL is correctly formatted with the right <span>project id</span> and <span>flow id</span>.</p>
-        <p>Here's an example (for localhost 3000): </p>
-        <p className='example' onClick={() => copy(exampleText)}>{exampleText}</p>
-        <p className={value && "copied"}>{value ? "Copied": "Click to Copy"}</p>
+        <h1 className='title error-title'>Hmmmmm</h1>
+        <p>Why am I seeing this page?</p>
+        <p className='error-txt'>Please make sure the URL is correctly formatted with a valid <span>project id</span>, <span>flow id</span>, and <span>theme</span>.</p>
+        <p className='error-blue'>Here's an example: </p>
+        <p className='example' onClick={() => copy(exampleText)}>{exampleText} 
+          {value ? 
+          <CheckIcon className='copy-icon' /> 
+          : 
+          <ContentCopyIcon className='copy-icon'/>
+          }
+         </p>
       </div>
     )
 }

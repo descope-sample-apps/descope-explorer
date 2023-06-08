@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AuthProvider } from '@descope/react-sdk'
 import Error from './components/Error';
 import AuthFlow from './components/AuthFlow';
@@ -10,26 +10,31 @@ import Sample from './components/Sample';
 import SDKShow from './components/SDKs';
 
 function App() {
+  const defaultProjectId = "P2QZZJhnbALQo5FSNKRi0KAHHRz6"
   const queryParameters = new URLSearchParams(window.location.search)
-  const project = queryParameters.get("project") || "P2QZZJhnbALQo5FSNKRi0KAHHRz6"
-  const flow = queryParameters.get("flow") || "sign-up-or-in"
-  const [theme, setTheme] = useState(queryParameters.get("theme") || "light")
+  const project = queryParameters.get("project") || defaultProjectId
 
+  const currTheme = queryParameters.get("theme")
+  const flow = queryParameters.get("flow") || "sign-up-or-in"
+
+  const [noError, setNoError] = useState(currTheme === "light" || currTheme === "dark" || !currTheme)
+  const [theme, setTheme] = useState(currTheme || "light")
+ 
   return (
     <>
-      {project && flow ? 
+      {project && flow && noError ? 
         <>
           <Navbar theme={theme} setTheme={setTheme} />
           <Introduction theme={theme}/>
           <AuthProvider projectId={project}>
-            <AuthFlow flow={flow} theme={theme} />
+            <AuthFlow flow={flow} theme={theme} setNoError={setNoError} />
           </AuthProvider>
           <SDKShow theme={theme}/>
           <Sample theme={theme}/>
           <BottomNav />
         </>
         :
-        <Error />
+        <Error defaultProjectId={defaultProjectId} flow={flow} />
       }
     </>
   )
