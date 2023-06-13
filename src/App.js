@@ -24,7 +24,7 @@ function App() {
     <>
       {project && flow && noError ? 
         <>
-          <Navbar theme={theme} setTheme={setTheme} />
+          <Navbar theme={theme} setTheme={setTheme} defaultProjectId={defaultProjectId} flow={flow} />
           <Introduction theme={theme}/>
           <AuthProvider projectId={project}>
             <AuthFlow flow={flow} theme={theme} setNoError={setNoError} />

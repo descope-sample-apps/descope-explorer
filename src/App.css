@@ -21,6 +21,10 @@
   --navbar-btn-bg: #f4f4f4;
   --navbar-btn-border: #56a2f9;
   --navbar-btn-color: #0081b3;
+  --question-icon-color: #0081b3;
+  --question-icon-border: #56a2f9;
+  --settings-icon-color: #0081b3;
+  --settings-icon-border: #56a2f9;
   --hamburger-color: #151515;
   --gosdk-shadow: rgb(96, 223, 255);
   --node-shadow: rgb(60, 228, 152);
@@ -39,6 +43,15 @@
   --nav-bg-mobile: #0081b3;
   --example-bg: rgb(246, 251, 255);
   --error-border: #0081b3;
+  --question-modal-bg: #ebebeb;
+  --question-modal-border: #2b8eff;
+  --question-color: #0a729c;
+  --question-modal-default-color: #151515;
+  --form-bg: rgb(223, 226, 228);
+  --form-input-color: #0a729c;
+  --questions-modal-color: #0075a3;
+  --update-btn-bg: #0081b3;
+  --update-btn-color: aliceblue;
 }
 [data-theme="dark"] {
   --test-test: blue;
@@ -59,11 +72,16 @@
   --navbar-btn-bg: #1c1c1c;
   --navbar-btn-border: #56f9aa;
   --navbar-btn-color: gold;
+  --question-icon-color: gold;
+  --question-icon-border: #56f9aa;
+  --settings-icon-color: gold;
+  --settings-icon-border: #56f9aa;
   --hamburger-color: #39e7a1;
   --gosdk-shadow: rgb(45, 143, 255);
   --node-shadow: rgb(25, 255, 128);
   --python-shadow: rgb(202, 202, 14);
   --react-shadow: rgb(0, 242, 255);
+  --kotlin-shadow: rgb(106, 65, 255);
   --web-shadow: rgb(181, 169, 1);
   --swift-shadow: rgb(231, 111, 6);
   --flutter-shadow: rgb(0, 171, 239);
@@ -76,6 +94,15 @@
   --navbar-bg: rgb(32, 32, 32);
   --example-bg: rgb(21, 21, 21);
   --error-border: rgb(107, 236, 236);
+  --question-modal-bg: #191919;
+  --question-modal-border: rgb(70, 70, 70);
+  --question-color: rgb(23, 233, 208);
+  --question-modal-default-color: #dadada;
+  --form-bg: #232323;
+  --form-input-color: rgb(228, 228, 228);
+  --questions-modal-color: rgb(7, 223, 198);
+  --update-btn-bg: #232323;
+  --update-btn-color: rgb(7, 223, 198);
 }
 
 
@@ -127,12 +154,12 @@ h1, p {
 }
 h1 {
   margin: 0;
-  font-size: 3.1em;
+  font-size: 3.1vw;
   margin-bottom: 3vh;
 }
 p {
   margin: 0;
-  font-size: 1.1em;
+  font-size: 1.2vw;
   margin-bottom: 3vh;
 }
 .curved {
@@ -142,7 +169,7 @@ p {
 }
 .title {
   color: #0081b3;
-  font-size: 3.8em;
+  font-size: 4.2vw;
   margin-top: 2vh;
 }
 .tagline {
@@ -172,7 +199,7 @@ p {
 }
 .error-txt {
   max-width: 70%;
-  line-height: 1.8em;
+  line-height: 1.8vw;
 }
 .error-blue {
   color: var(--sample-link);
@@ -243,10 +270,88 @@ pre {
 }
 .bottom-title {
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.3vw;
   color: rgb(33, 33, 33);
   padding-top: 3vh;
   padding-bottom: 3vh;
+}
+
+
+/* ===== Modals ===== */
+.question-modal {
+  overflow: auto;
+  height: fit-content;
+  display: block;
+  margin: 0 auto;
+  width: 50vw;
+  background-color: var(--question-modal-bg);
+  padding: 4vh 5vh;
+  border-radius: 15px;
+  text-align: left;
+  font-size: 1.3vw;
+  border: 1px solid var(--question-modal-border);
+  color: var(--question-modal-default-color);
+}
+.question-modal h1, .settings-tagline {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 5vh;
+}
+.settings-tagline {
+  margin-bottom: 2vh;
+}
+.question {
+  color: var(--question-color);
+  font-size: 1.2vw;
+  font-weight: 500;
+}
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.settings-form label {
+  font-size: 1.2vw;
+  margin: 1vw;
+  margin-left: 0;
+  margin-top: 1.8vh;
+}
+.settings-form input {
+  box-sizing: border-box;
+  background-color: var(--form-bg);
+  color: var(--form-input-color);
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1.2vw;
+  padding: 10px;
+  border: none;
+  font-family: 'JetBrains Mono', monospace;
+}
+.questions-modal-title {
+  color: var(--questions-modal-color);
+}
+.settings-form {
+  margin-bottom: 1vw;
+}
+.settings-form input:focus {
+  outline: none;
+}
+.update-btn {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  margin-top: 3vh;
+  padding: 2vh 4vh;
+  font-size: 1.2vw;
+  background-color: var(--update-btn-bg);
+  color: var(--update-btn-color);
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+}
+.question-ans-break {
+  word-wrap: break-word;
 }
 
 
@@ -289,15 +394,15 @@ pre {
   margin: 0;
 }
 .sample-link {
-  font-size: 1em;
+  font-size: 1.1vw;
   text-decoration: none;
   color: var(--sample-link);
 }
 .sample-des {
-  font-size: 1em;
+  font-size: 1.1vw;
 }
 .sample-title {
-  font-size: 2.4em;
+  font-size: 2.7vw;
   color: #0081b3;
 }
 .second-title {
@@ -326,8 +431,14 @@ pre {
 .nodesdk-size {
   width: 8vw;
 }
+.kotlin-size {
+  width: 5.5vw;
+}
 .gosdk {
   -webkit-filter: drop-shadow(0px 0px 30px var(--gosdk-shadow));
+}
+.kotlinsdk {
+  -webkit-filter: drop-shadow(0px 0px 30px var(--kotlin-shadow));
 }
 .nodesdk {
   -webkit-filter: drop-shadow(0px 0px 30px var(--node-shadow));
@@ -418,6 +529,30 @@ pre {
   margin-right: 2vh;
   box-shadow: 0px 0px 5px rgb(91, 141, 154);
   color: var(--navbar-btn-color);
+  cursor: pointer;
+}
+.round-btn {
+  margin-right: 0;
+}
+.question-icon {
+  color: var(--question-icon-color);
+  border: 0.09375rem solid var(--question-icon-border);
+  animation: pulse 1s 3;
+  animation-fill-mode: forwards;
+}
+@keyframes pulse{
+  0%{
+    box-shadow:rgba(2, 219, 165, 0.6) 0 0 0 0;
+  }
+  100%{
+    box-shadow:rgba(22, 25, 21, 0.2) 0 0 0 10px;
+  }
+}
+
+
+.settings-icon {
+  color: var(--settings-icon-color);
+  border: 0.09375rem solid var(--settings-icon-border);
 }
 .light-hover:hover {
   color: rgb(88, 222, 255);
@@ -425,7 +560,7 @@ pre {
 .star {
   margin: 0;
   padding-top: 0;
-  font-size: 2em;
+  font-size: 2.25vw;
   width: fit-content;
   margin-bottom: 8px;
   margin-right: 8px;
@@ -570,5 +705,39 @@ pre {
   }
   .flow-shown {
     width: 70vw;
+  }
+  .star {
+    font-size: 2em;
+  }
+  h1 {
+    font-size: 2.8em;
+  }
+  p {
+    font-size: 1em;
+  }
+  .title {
+    font-size: 3.5em;
+  }
+  .bottom-title {
+    font-size: 1.2em;
+  }
+  .sample-link {
+    font-size: 1em;
+  }
+  .sample-des {
+    font-size: 1em;
+  }
+  .sample-title {
+    font-size: 2em;
+  }
+  .question-modal {
+    font-size: 0.8em;
+    width: 70vw;
+  }
+  .question, .settings-form label, .settings-form input, .update-btn, .question, .settings-tagline {
+    font-size: 1.2em;
+  } 
+  .question-modal h1, .settings-tagline {
+    margin-bottom: 3vh;
   }
 }
