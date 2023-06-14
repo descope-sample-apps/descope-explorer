@@ -103,7 +103,7 @@ function Navbar({ theme, setTheme, defaultProjectId, flow }) {
                                     <p className="question">What is Descope Explorer?</p>
                                     <p>Descope Explorer is an easy way to demo your own project authentication flows.</p>
                                     <p className="question">How can I add my own project id, flow id, and theme?</p>
-                                    <p>1. Add it to the URL and format it like this: <br /> <br /><span className="question-ans-break">https://descope-explorer.com/?project=${defaultProjectId}&flow=${flow}&theme=dark</span></p>
+                                    <p>1. Add it to the URL and format it like this: <br /> <br /><span className="question-ans-break">https://descope-explorer.com/?project={defaultProjectId}&flow=sign-up-or-in&theme=dark</span></p>
                                     <p className="question">OR</p>
                                     <p>2. Click on the settings icon on the top right navbar to modify all the parameters through input fields.</p>
                                 </div>
