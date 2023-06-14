@@ -98,7 +98,7 @@ function Navbar({ theme, setTheme, defaultProjectId, flow }) {
                             className="page"
                         >
                             <div className="page question-modal">
-                                <h1 className="questions-modal-title">Questions</h1>
+                                <h1 className="questions-modal-title">Info</h1>
                                 <div>
                                     <p className="question">What is Descope Explorer?</p>
                                     <p>Descope Explorer is an easy way to demo your own project authentication flows.</p>
