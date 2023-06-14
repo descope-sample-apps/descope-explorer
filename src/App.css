@@ -52,7 +52,7 @@
   --questions-modal-color: #0075a3;
   --update-btn-bg: #0081b3;
   --update-btn-color: aliceblue;
-  --pulse-bg: #3fb2e7;
+  --pulse-bg: rgba(63, 158, 202, 0.9);
   --settings-label-color: #066c94;
 }
 [data-theme="dark"] {
