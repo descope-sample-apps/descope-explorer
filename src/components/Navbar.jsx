@@ -38,13 +38,26 @@ function Navbar({ theme, setTheme, defaultProjectId, flow }) {
         var url = new URL(window.location.href);
         var search_params = url.searchParams;
 
-        search_params.set('theme', settings.thisTheme);
-        search_params.set('project', settings.thisProject);
-        search_params.set('flow', settings.thisFlow);
+        // search_params.set('theme', settings.thisTheme);
+        // search_params.set('project', settings.thisProject);
+        // search_params.set('flow', settings.thisFlow);
+
+        search_params = checkSetParam('theme', search_params, settings.thisTheme)
+        search_params = checkSetParam('project', search_params, settings.thisProject)
+        search_params = checkSetParam('flow', search_params, settings.thisFlow)
 
         url.search = search_params.toString();
         const new_url = url.toString();
         window.location.replace(new_url) 
+    }
+
+    const checkSetParam = (param, search_params, val) => {
+        let new_search = search_params
+        if (val) {
+            new_search.set(param, val)
+        }
+        console.log(new_search)
+        return new_search
     }
 
     if (theme === "dark") {
