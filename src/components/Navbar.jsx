@@ -20,15 +20,44 @@ function Navbar({ theme, setTheme, defaultProjectId, flow }) {
     const [openQuestion, setOpenQuestion] = useState(false);
     const [openSettings, setOpenSettings] = useState(false);
 
+    const [settings, setSettings] = useState({
+        thisTheme: "",
+        thisProject: "",
+        thisFlow: ""
+    });
+
+    const handleChange = (e) => {
+        console.log(e.target.name, e.target.value)
+        setSettings({
+          ...settings,
+          [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = () => {
+        var url = new URL(window.location.href);
+        var search_params = url.searchParams;
+
+        search_params.set('theme', settings.thisTheme);
+        search_params.set('project', settings.thisProject);
+        search_params.set('flow', settings.thisFlow);
+
+        url.search = search_params.toString();
+        const new_url = url.toString();
+        window.location.replace(new_url) 
+    }
+
     if (theme === "dark") {
         document.documentElement.setAttribute("data-theme", "dark");
     } 
 
-    const changeTheme = (mode) => {
+    const changeURL = (param, val) => {
         var url = new URL(window.location.href)
-        url.searchParams.set('theme', mode)
+        url.searchParams.set(param, val)
         window.location.replace(url.toString()) 
-         setTheme(mode)
+        if (param === 'theme') {
+            setTheme(val)
+        }
     }
 
     return (
@@ -98,22 +127,22 @@ function Navbar({ theme, setTheme, defaultProjectId, flow }) {
                                 <h1 className="questions-modal-title">Settings</h1>
                                 <p className="settings-tagline">Try modifying the default values with your own project info!</p>
                                 <div className="settings-form">
-                                    <label>Project ID:</label>
-                                    <input type="text" defaultValue={defaultProjectId} />
-                                    <label>Flow ID:</label>
-                                    <input type="text" defaultValue={flow} />
-                                    <label>Theme:</label>
-                                    <input type="text" defaultValue={theme} />
+                                    <label className="settings-label">Project ID:</label>
+                                    <input type="text" name="thisProject" placeholder={defaultProjectId} onChange={(e) => handleChange(e)} />
+                                    <label className="settings-label">Flow ID:</label>
+                                    <input type="text" name="thisFlow" placeholder={flow} onChange={(e) => handleChange(e)} />
+                                    <label className="settings-label">Theme:</label>
+                                    <input type="text" name="thisTheme" placeholder={theme} onChange={(e) => handleChange(e)} />
                                 </div>
-                                <button className="update-btn">Update</button>
+                                <button className="update-btn" onClick={() => handleSubmit()}>Update</button>
                             </div>
                         </Modal>
                     </li>
                     <li className="navbar-btn-li">
                         {theme === "light" ? 
-                            <button className="navbar-btn round-btn" onClick={() => changeTheme("dark")}><DarkModeIcon /></button>
+                            <button className="navbar-btn round-btn" onClick={() => changeURL("theme", "dark")}><DarkModeIcon /></button>
                             :
-                            <button className="navbar-btn round-btn" onClick={() => changeTheme("light")}><LightModeIcon /></button>
+                            <button className="navbar-btn round-btn" onClick={() => changeURL("theme", "light")}><LightModeIcon /></button>
                         }
                     </li>
                 </ul>

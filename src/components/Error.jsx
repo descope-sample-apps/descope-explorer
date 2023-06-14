@@ -4,9 +4,9 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckIcon from '@mui/icons-material/Check';
 
 
-function Error({defaultProjectId, flow}) {
+function Error({defaultProjectId}) {
     const [value, copy] = useCopyToClipboard()
-    const exampleText = `https://descope-explorer.com/?project=${defaultProjectId}&flow=${flow}&theme=dark`
+    const exampleText = `https://descope-explorer.com/?project=${defaultProjectId}&flow=sign-up-or-in&theme=dark`
   
     return (
       <div className='page error fullscreen'>

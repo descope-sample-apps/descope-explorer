@@ -34,7 +34,7 @@ function App() {
           <BottomNav />
         </>
         :
-        <Error defaultProjectId={defaultProjectId} flow={flow} />
+        <Error defaultProjectId={defaultProjectId} />
       }
     </>
   )
