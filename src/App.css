@@ -504,6 +504,7 @@ pre {
   list-style-type: none;
   margin-right: 2.5vh;
   font-weight: 500;
+  font-size: 1.1vw;
 }
 .nav-link {
   text-decoration: none;
@@ -738,5 +739,8 @@ pre {
   } 
   .question-modal h1, .settings-tagline {
     margin-bottom: 3vh;
+  }
+  .navbar-menu li {
+    font-size: 0.95em;
   }
 }

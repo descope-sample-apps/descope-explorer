@@ -83,6 +83,11 @@ const SampleApps = [
     title: "swift-sample-app",
     des: "Swift Sample App",
     link: "https://github.com/descope-sample-apps/swift-sample-app"
+  },
+  {
+    title: "django-descope",
+    des: "Descope Django App",
+    link: "https://github.com/descope/django-descope"
   }
 ] 
 
