@@ -218,8 +218,9 @@ p {
 }
 .flow-shown {
   border: 2px solid var(--auth-border);
-  padding: 1vh 4vh;
-  border-radius: 15px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding: 0 4vh;
 }
 .logout-btn {
   display: flex;
@@ -258,6 +259,20 @@ pre {
   border-radius: 20px;
   font-family:  'Source Code Pro', monospace;
   height: 85vh;
+}
+.download-btn {
+  cursor: pointer;
+  border: none;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  font-size: 1.1vw;
+  background-color: var(--auth-border);
+  color: aliceblue;
+  padding: 1.5vh 0;
+  padding-top: 1.75vh;
+}
+.download-txt {
+  margin-right: 1vh;
 }
 .pre1 {
   color: var(--jwt-color1);
@@ -724,7 +739,7 @@ pre {
   .sample-link {
     font-size: 1em;
   }
-  .sample-des {
+  .sample-des, .download-btn {
     font-size: 1em;
   }
   .sample-title {

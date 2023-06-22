@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDescope, useSession } from '@descope/react-sdk'
 import { Descope } from '@descope/react-sdk'
 import Replay from '@mui/icons-material/Replay';
+import DownloadIcon from '@mui/icons-material/Download';
 
 
 function AuthFlow({ flow, theme, setNoError }) {
@@ -58,22 +59,25 @@ function AuthFlow({ flow, theme, setNoError }) {
         )
       }
       {!isAuthenticated && (
-        <div className='flow-shown'>
-          {theme === "light" ?
-            <Descope
-              flowId={flow} 
-              onSuccess = {(e) => setJWTs(e)}
-              onError={(e) => setNoError(false)}
-              theme="light"
-            /> 
-            :
-            <Descope
-              flowId={flow} 
-              onSuccess = {(e) => setJWTs(e)}
-              onError={(e) => setNoError(false)}
-              theme="dark"
-            /> 
-          }
+        <div>
+          <button className='row download-btn'><span className='download-txt'>Download Flow</span> <DownloadIcon /></button>
+          <div className='flow-shown'>
+            {theme === "light" ?
+              <Descope
+                flowId={flow} 
+                onSuccess = {(e) => setJWTs(e)}
+                onError={(e) => setNoError(false)}
+                theme="light"
+              /> 
+              :
+              <Descope
+                flowId={flow} 
+                onSuccess = {(e) => setJWTs(e)}
+                onError={(e) => setNoError(false)}
+                theme="dark"
+              /> 
+            }
+          </div>
         </div>
       )}
     </div>
