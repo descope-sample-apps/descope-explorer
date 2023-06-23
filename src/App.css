@@ -54,6 +54,8 @@
   --update-btn-color: aliceblue;
   --pulse-bg: rgba(63, 158, 202, 0.9);
   --settings-label-color: #066c94;
+  --download-bg: #0081b3;
+  --download-btn-text: aliceblue;
 }
 [data-theme="dark"] {
   --test-test: blue;
@@ -64,7 +66,7 @@
   --sample-link: rgb(107, 236, 236);
   --sample-des: #c1bfbf;
   --github-color: #ededed;
-  --auth-border: rgb(0, 255, 225);
+  --auth-border: rgb(39, 39, 39);
   --nav-link: #f1f1f1;
   --nav-bggray-link: #f1f1f1;
   --nav-bggray-link-dark: #f1f1f1;
@@ -107,6 +109,8 @@
   --update-btn-color: rgb(7, 223, 198);
   --pulse-bg: rgb(7, 207, 184);
   --settings-label-color: rgb(228, 228, 228);
+  --download-bg: rgb(30, 30, 30);
+  --download-btn-text: rgb(26, 234, 220);
 }
 
 
@@ -221,6 +225,7 @@ p {
   border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;
   padding: 0 4vh;
+  border-top: none;
 }
 .logout-btn {
   display: flex;
@@ -260,19 +265,29 @@ pre {
   font-family:  'Source Code Pro', monospace;
   height: 85vh;
 }
-.download-btn {
-  cursor: pointer;
+.download-container {
   border: none;
   border-top-right-radius: 25px;
   border-top-left-radius: 25px;
   font-size: 1.1vw;
-  background-color: var(--auth-border);
-  color: aliceblue;
+  background-color: var(--download-bg);
+  color: var(--download-btn-text);
   padding: 1.5vh 0;
   padding-top: 1.75vh;
 }
 .download-txt {
-  margin-right: 1vh;
+  margin: 0;
+  margin-right: 2vh;
+}
+.download-btn {
+  margin-left: 1vh;
+  background: none;
+  margin-top: 5px;
+  border: none;
+  color: var(--download-btn-text);
+}
+.form-control {
+  width: 10vw;
 }
 .pre1 {
   color: var(--jwt-color1);

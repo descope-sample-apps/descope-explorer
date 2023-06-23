@@ -5,12 +5,23 @@ import { Descope } from '@descope/react-sdk'
 import Replay from '@mui/icons-material/Replay';
 import DownloadIcon from '@mui/icons-material/Download';
 
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 
 function AuthFlow({ flow, theme, setNoError }) {
   const { isAuthenticated } = useSession()
   const { logout } = useDescope()
   const [jwt, setJwt] = useState("")
   const [response, setResponse] = useState("")
+
+  const [age, setAge] = useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
   useEffect(() => {
     if (!jwt) {
@@ -60,7 +71,27 @@ function AuthFlow({ flow, theme, setNoError }) {
       }
       {!isAuthenticated && (
         <div>
-          <button className='row download-btn'><span className='download-txt'>Download Flow</span> <DownloadIcon /></button>
+          <div className='row download-container'>
+            <p className='download-txt'>Download</p> 
+            <FormControl className='form-control' size="small">
+              <InputLabel id="demo-select-small-label">Age</InputLabel>
+              <Select
+                labelId="demo-select-small-label"
+                id="demo-select-small"
+                value={age}
+                label="Age"
+                onChange={handleChange}
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+            <button className='download-btn'><DownloadIcon /></button>   
+          </div>      
           <div className='flow-shown'>
             {theme === "light" ?
               <Descope
