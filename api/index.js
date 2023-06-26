@@ -1,29 +1,32 @@
-import DescopeClient from "@descope/node-sdk";
-import * as dotenv from "dotenv";
+import DescopeClient from "@descope/node-sdk"
 
-dotenv.config();
 
 export default async function handler(request, response) {
-  const projectId = request.headers['x-project-id'] || process.env.REACT_APP_DESCOPE_PROJECT_ID;
-  
-  const header = request.headers['authorization'];
-  const session_token = header?.split(" ")[1] ?? "";
+  const projectId = process.env.REACT_APP_DESCOPE_PROJECT_ID
+  const managementKey = process.env.MANAGEMENT_KEY
 
   const descopeClient = DescopeClient({
     projectId: projectId,
-    baseUrl: process.env.DESCOPE_BASE_URL
+    managementKey: managementKey,
   });
   
-  let roles = [];
-
   try {
-    const jwt = await descopeClient.validateSession(session_token);
-    Object.keys(jwt.token.tenants || []).forEach((tenantId) => {
-      roles = roles.concat(jwt.token.tenants[tenantId].roles);
-    });
+
+    var flow_res = { flow: null };
+
+    switch (request.method) {
+      case "GET": 
+        flow_res.flow = await descopeClient.management.flow.list()
+        break
+      case "POST":
+        flow_res.flow = await descopeClient.management.flow.export('sign-up')
+        break
+      default:
+        break
+    }
 
     response.status(200).json({
-      body: [],
+      body: flow_res,
       query: request.query,
       cookies: request.cookies,
     });
@@ -34,5 +37,6 @@ export default async function handler(request, response) {
       cookies: request.cookies,
     });
   }
+  
   response.send();
 }

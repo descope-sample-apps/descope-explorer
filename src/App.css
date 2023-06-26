@@ -56,6 +56,8 @@
   --settings-label-color: #066c94;
   --download-bg: #0081b3;
   --download-btn-text: aliceblue;
+  --select-container-bg: rgb(242, 247, 248);
+  --select-container-text: #0081b3;
 }
 [data-theme="dark"] {
   --test-test: blue;
@@ -66,7 +68,7 @@
   --sample-link: rgb(107, 236, 236);
   --sample-des: #c1bfbf;
   --github-color: #ededed;
-  --auth-border: rgb(39, 39, 39);
+  --auth-border: rgb(59, 59, 59);
   --nav-link: #f1f1f1;
   --nav-bggray-link: #f1f1f1;
   --nav-bggray-link-dark: #f1f1f1;
@@ -111,6 +113,8 @@
   --settings-label-color: rgb(228, 228, 228);
   --download-bg: rgb(30, 30, 30);
   --download-btn-text: rgb(26, 234, 220);
+  --select-container-bg: rgb(45, 45, 45);
+  --select-container-text: rgb(26, 234, 220);
 }
 
 
@@ -221,9 +225,6 @@ p {
   width: 100%;
 }
 .flow-shown {
-  border: 2px solid var(--auth-border);
-  border-bottom-right-radius: 25px;
-  border-bottom-left-radius: 25px;
   padding: 0 4vh;
   border-top: none;
 }
@@ -265,10 +266,14 @@ pre {
   font-family:  'Source Code Pro', monospace;
   height: 85vh;
 }
+.flow-wrapper {
+  border: 1.25px solid var(--auth-border);
+  border-radius: 28px;
+}
 .download-container {
-  border: none;
   border-top-right-radius: 25px;
   border-top-left-radius: 25px;
+  border-bottom: 1.25px solid var(--auth-border);
   font-size: 1.1vw;
   background-color: var(--download-bg);
   color: var(--download-btn-text);
@@ -285,9 +290,13 @@ pre {
   margin-top: 5px;
   border: none;
   color: var(--download-btn-text);
+  cursor: pointer;
 }
 .form-control {
   width: 10vw;
+}
+.form-select {
+  margin: 0;
 }
 .pre1 {
   color: var(--jwt-color1);
@@ -315,7 +324,7 @@ pre {
 .question-modal {
   overflow: auto;
   height: fit-content;
-  display: block;
+  display: flex;
   margin: 0 auto;
   width: 50vw;
   background-color: var(--question-modal-bg);
@@ -344,6 +353,7 @@ pre {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  width: 90%;
 }
 .settings-form label {
   font-size: 1.2vw;
@@ -612,6 +622,9 @@ pre {
 .navbar-btn:hover {
   box-shadow: 0px 0px 8px var(--pulse-bg);
 }
+.inner-question-container {
+  width: 90%;
+}
 
 
 /*  ===== Gradient Border ===== */
@@ -629,6 +642,19 @@ pre {
   outline: none;
   border: 0.09375rem solid transparent;
   box-shadow: 0px 0px 5px rgb(91, 141, 154);
+}
+
+
+/* ==== FlowForm ===== */
+.select-container {
+  padding: 1vh;
+  font-size: 1em;
+  color: var(--select-container-text);
+  background-color: var(--select-container-bg);
+  outline: none;
+  border: 1px solid var(--select-container-bg);
+  border-radius: 5px;
+  padding-right: 2vh;
 }
 
 
@@ -751,10 +777,7 @@ pre {
   .bottom-title {
     font-size: 1.2em;
   }
-  .sample-link {
-    font-size: 1em;
-  }
-  .sample-des, .download-btn {
+  .sample-des, .download-btn, .sample-link, .download-container  {
     font-size: 1em;
   }
   .sample-title {

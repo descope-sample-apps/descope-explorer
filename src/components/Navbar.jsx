@@ -38,10 +38,6 @@ function Navbar({ theme, setTheme, defaultProjectId, flow }) {
         var url = new URL(window.location.href);
         var search_params = url.searchParams;
 
-        // search_params.set('theme', settings.thisTheme);
-        // search_params.set('project', settings.thisProject);
-        // search_params.set('flow', settings.thisFlow);
-
         search_params = checkSetParam('theme', search_params, settings.thisTheme)
         search_params = checkSetParam('project', search_params, settings.thisProject)
         search_params = checkSetParam('flow', search_params, settings.thisFlow)
@@ -64,13 +60,11 @@ function Navbar({ theme, setTheme, defaultProjectId, flow }) {
         document.documentElement.setAttribute("data-theme", "dark");
     } 
 
-    const changeURL = (param, val) => {
+    const changeTheme = (theme) => {
         var url = new URL(window.location.href)
-        url.searchParams.set(param, val)
+        url.searchParams.set("theme", theme)
         window.location.replace(url.toString()) 
-        if (param === 'theme') {
-            setTheme(val)
-        }
+        setTheme(theme)
     }
 
     return (
@@ -112,7 +106,7 @@ function Navbar({ theme, setTheme, defaultProjectId, flow }) {
                         >
                             <div className="page question-modal">
                                 <h1 className="questions-modal-title">Info</h1>
-                                <div>
+                                <div className="inner-question-container">
                                     <p className="question">What is Descope Explorer?</p>
                                     <p>Descope Explorer is an easy way to demo your own project authentication flows.</p>
                                     <p className="question">How can I add my own project id, flow id, and theme?</p>
@@ -153,9 +147,9 @@ function Navbar({ theme, setTheme, defaultProjectId, flow }) {
                     </li>
                     <li className="navbar-btn-li">
                         {theme === "light" ? 
-                            <button className="navbar-btn round-btn" onClick={() => changeURL("theme", "dark")}><DarkModeIcon /></button>
+                            <button className="navbar-btn round-btn" onClick={() => changeTheme("dark")}><DarkModeIcon /></button>
                             :
-                            <button className="navbar-btn round-btn" onClick={() => changeURL("theme", "light")}><LightModeIcon /></button>
+                            <button className="navbar-btn round-btn" onClick={() => changeTheme("light")}><LightModeIcon /></button>
                         }
                     </li>
                 </ul>

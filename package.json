@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@descope/node-sdk": "^1.5.2",
     "@descope/react-sdk": "^1.0.8",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
