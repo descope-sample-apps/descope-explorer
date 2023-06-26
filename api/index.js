@@ -16,7 +16,13 @@ export default async function handler(request, response) {
 
     switch (request.method) {
       case "GET": 
-        flow_res.flow = await descopeClient.management.flow.list()
+        var flowArr = []
+        const curr_flow_data = await descopeClient.management.flow.list()
+        curr_flow_data.flows.forEach((flowMetadata) => {
+          console.log(flowArr)
+          flowArr.push(flowMetadata)
+        });
+        flow_res.flow = flowArr
         break
       case "POST":
         flow_res.flow = await descopeClient.management.flow.export('sign-up')
@@ -37,6 +43,6 @@ export default async function handler(request, response) {
       cookies: request.cookies,
     });
   }
-  
+
   response.send();
 }
