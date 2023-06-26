@@ -7,7 +7,7 @@ function FlowForm({ flowIDs }) {
         <div className='row download-container'>
             <p className='download-txt'>Download</p> 
             <select className='select-container'>
-                {flowIDs.flow.map((option, i) => (
+                {flowIDs.map((option, i) => (
                     <option id={i} value={option}>{option}</option>
                 ))}
             </select>
