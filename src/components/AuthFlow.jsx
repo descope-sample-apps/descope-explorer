@@ -27,7 +27,10 @@ function AuthFlow({ flow, theme, setNoError }) {
         return response.json();
       })
       .then((res) => {
-        setFlowIDs(res);
+        if (res) {
+          res.body.loaded = true;
+          setFlowIDs(res.body);
+        }
       })
       .catch((err) => console.log('err => ', err));
   }, [jwt, logoutUser]) 
