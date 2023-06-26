@@ -24,10 +24,12 @@ function AuthFlow({ flow, theme, setNoError }) {
     }
     fetch("/api/data")
       .then((response) => {
+        console.log(response)
         return response.json();
       })
       .then((res) => {
         if (res) {
+          console.log(res)
           res.body.loaded = true;
           setFlowIDs(res.body);
         }
