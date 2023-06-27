@@ -22,7 +22,7 @@ function AuthFlow({ flow, theme, setNoError }) {
     if (!jwt) {
       logoutUser() 
     }
-    fetch("/api/data")
+    fetch("/api/getFlows")
       .then((response) => {
         console.log(response)
         return response.json();

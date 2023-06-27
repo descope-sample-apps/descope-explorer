@@ -1,7 +1,7 @@
 import DescopeClient from "@descope/node-sdk"
 
 
-export default async function handler(request, response) {
+export default async function getFlows(request, response) {
   const projectId = process.env.REACT_APP_DESCOPE_PROJECT_ID
   const managementKey = process.env.MANAGEMENT_KEY
 
@@ -11,9 +11,7 @@ export default async function handler(request, response) {
   });
   
   try {
-
     const curr_flow_data = await descopeClient.management.flow.list()
-    console.log(curr_flow_data)
 
     response.status(200).json({
       body: curr_flow_data,
