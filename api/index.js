@@ -14,22 +14,14 @@ export default async function handler(request, response) {
 
     var flow_res = { flow: null };
 
-    switch (request.method) {
-      case "GET": 
-        var flowArr = []
-        const curr_flow_data = await descopeClient.management.flow.list()
-        curr_flow_data.flows.forEach((flowMetadata) => {
-          console.log(flowArr)
-          flowArr.push(flowMetadata)
-        });
-        flow_res.flow = flowArr
-        break
-      case "POST":
-        flow_res.flow = await descopeClient.management.flow.export('sign-up')
-        break
-      default:
-        break
-    }
+    var flowArr = []
+    const curr_flow_data = await descopeClient.management.flow.list()
+    curr_flow_data.flows.forEach((flowMetadata) => {
+      flowArr.push(flowMetadata)
+    });
+
+    flow_res.flow = flowArr
+    console.log(flow_res.flow)
 
     response.status(200).json({
       body: flow_res,
