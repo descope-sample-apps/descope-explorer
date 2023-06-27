@@ -12,7 +12,7 @@ function AuthFlow({ flow, theme, setNoError }) {
 
   const [jwt, setJwt] = useState("")
   const [response, setResponse] = useState("")
-  const [flowIDs, setFlowIDs] = useState([])
+  const [flowIDs, setFlowIDs] = useState({})
 
   const logoutUser = useCallback(async() => {
     await logout()

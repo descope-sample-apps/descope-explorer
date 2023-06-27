@@ -12,19 +12,10 @@ export default async function handler(request, response) {
   
   try {
 
-    var flow_res = { flow: null };
-
-    var flowArr = []
     const curr_flow_data = await descopeClient.management.flow.list()
-    curr_flow_data.flows.forEach((flowMetadata) => {
-      flowArr.push(flowMetadata)
-    });
-
-    flow_res.flow = flowArr
-    console.log(flow_res.flow)
 
     response.status(200).json({
-      body: flow_res,
+      body: curr_flow_data,
       query: request.query,
       cookies: request.cookies,
     });
