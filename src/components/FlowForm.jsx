@@ -26,7 +26,7 @@ function FlowForm() {
             }
         })
         .catch((err) => console.log('err => ', err));
-    }, [flowIDs])
+    }, [])
 
     const handleSelect = (e) => {
         setDownloadFlow(e.target.value);
