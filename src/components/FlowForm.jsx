@@ -21,7 +21,8 @@ function FlowForm() {
                 console.log(res)
                 res.body.loaded = true;
                 setFlowIDs(res.body.data.flows);
-                setDownloadFlow(flowIDs[0].id)
+                console.log(flowIDs)
+                // setDownloadFlow(flowIDs[0].id)
             }
         })
         .catch((err) => console.log('err => ', err));
@@ -43,9 +44,9 @@ function FlowForm() {
                 value={downloadFlow}
                 onChange={handleSelect}
             >
-                {flowIDs.map((flow) => (
+                {flowIDs.map((flow, i) => (
                     <MenuItem
-                        key={flow}
+                        key={i}
                         value={flow.id}
                         style={""}
                     >
