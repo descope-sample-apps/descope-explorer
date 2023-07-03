@@ -8,7 +8,7 @@ import Select from '@mui/material/Select';
 
 function FlowDownload() {
     const [flowIDs, setFlowIDs] = useState([])
-    const [downloadFlow, setDownloadFlow] = useState(flowIDs[0].id)
+    const [downloadFlow, setDownloadFlow] = useState()
 
     useEffect(() => {
         fetch("/api/getFlows")
@@ -18,9 +18,11 @@ function FlowDownload() {
         })
         .then((res) => {
             if (res) {
-                console.log(res)
                 res.body.loaded = true;
-                return setFlowIDs(res.body.data.flows)
+                const flowData = res.body.data.flows
+                setFlowIDs(flowData)
+                setDownloadFlow(flowData[0].id)
+                return
             }
         })
         .catch((err) => console.log('err => ', err));
