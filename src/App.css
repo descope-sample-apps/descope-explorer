@@ -166,12 +166,12 @@ h1, p {
 }
 h1 {
   margin: 0;
-  font-size: 3.1vw;
+  font-size: 3.1rem;
   margin-bottom: 3vh;
 }
 p {
   margin: 0;
-  font-size: 1.2vw;
+  font-size: 1.1rem;
   margin-bottom: 3vh;
 }
 .curved {
@@ -181,7 +181,7 @@ p {
 }
 .title {
   color: #0081b3;
-  font-size: 4.2vw;
+  font-size: 4rem;
   margin-top: 2vh;
 }
 .tagline {
@@ -203,10 +203,10 @@ p {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  word-break:break-all;
+  word-break: break-all;
 }
 .copy-icon {
-  margin-left: 2vw;
+  margin-left: 1.8rem;
   height: 100%;
 }
 .error-txt {
@@ -220,7 +220,6 @@ p {
 
 /*  ===== AuthFlow ===== */
 .authflow {
-  padding-top: 3vh;
   justify-content: center;
   width: 100%;
 }
@@ -267,22 +266,17 @@ pre {
   height: 85vh;
 }
 .flow-wrapper {
-  border: 1.25px solid var(--auth-border);
-  border-radius: 28px;
+  border: 2px solid var(--auth-border);
+  border-radius: 25px;
 }
 .download-container {
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
-  border-bottom: 1.25px solid var(--auth-border);
-  font-size: 1.1vw;
+  border-radius: 500px;
+  font-size: 1.1rem;
   background-color: var(--download-bg);
   color: var(--download-btn-text);
   padding: 1.5vh 0;
-  padding-top: 1.75vh;
-}
-.download-txt {
-  margin: 0;
-  margin-right: 2vh;
+  width: 30vw;
+  margin-bottom: 2vh;
 }
 .download-btn {
   margin-left: 1vh;
@@ -313,7 +307,7 @@ pre {
 }
 .bottom-title {
   margin: 0;
-  font-size: 1.3vw;
+  font-size: 1.2rem;
   color: rgb(33, 33, 33);
   padding-top: 3vh;
   padding-bottom: 3vh;
@@ -331,7 +325,7 @@ pre {
   padding: 6vh 5vh;
   border-radius: 15px;
   text-align: left;
-  font-size: 1.3vw;
+  font-size: 1.3rem;
   border: 1px solid var(--question-modal-border);
   color: var(--question-modal-default-color);
 }
@@ -345,7 +339,7 @@ pre {
 }
 .question {
   color: var(--question-color);
-  font-size: 1.2vw;
+  font-size: 1.2rem;
   font-weight: 500;
 }
 .settings-form {
@@ -356,7 +350,7 @@ pre {
   width: 90%;
 }
 .settings-form label {
-  font-size: 1.2vw;
+  font-size: 1.2rem;
   margin: 1vw;
   margin-left: 0;
   margin-top: 1.8vh;
@@ -371,7 +365,7 @@ pre {
   color: var(--form-input-color);
   border-radius: 6px;
   width: 100%;
-  font-size: 1.2vw;
+  font-size: 1.2rem;
   padding: 10px;
   border: none;
   font-family: 'JetBrains Mono', monospace;
@@ -391,7 +385,7 @@ pre {
   border: none;
   margin-top: 3vh;
   padding: 2vh 4vh;
-  font-size: 1.2vw;
+  font-size: 1.1rem;
   background-color: var(--update-btn-bg);
   color: var(--update-btn-color);
   border-radius: 8px;
@@ -442,15 +436,15 @@ pre {
   margin: 0;
 }
 .sample-link {
-  font-size: 1.1vw;
+  font-size: 1rem;
   text-decoration: none;
   color: var(--sample-link);
 }
 .sample-des {
-  font-size: 1.1vw;
+  font-size: 1rem;
 }
 .sample-title {
-  font-size: 2.7vw;
+  font-size: 2.5rem;
   color: #0081b3;
 }
 .second-title {
@@ -544,7 +538,7 @@ pre {
   list-style-type: none;
   margin-right: 2.5vh;
   font-weight: 500;
-  font-size: 1.1vw;
+  font-size: 1rem;
 }
 .nav-link {
   text-decoration: none;
@@ -597,7 +591,7 @@ pre {
 .star {
   margin: 0;
   padding-top: 0;
-  font-size: 2.25vw;
+  font-size: 2rem;
   width: fit-content;
   margin-bottom: 8px;
   margin-right: 8px;
@@ -647,19 +641,17 @@ pre {
 
 /* ==== FlowForm ===== */
 .select-container {
-  padding: 1vh;
   font-size: 1em;
   color: var(--select-container-text);
   background-color: var(--select-container-bg);
   outline: none;
-  border: 1px solid var(--select-container-bg);
   border-radius: 5px;
   padding-right: 2vh;
 }
 
 
 /*  ===== Responsive ===== */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 910px) {
   .hamburger {
     display: block;
     visibility: visible;
@@ -762,38 +754,14 @@ pre {
   .flow-shown {
     width: 70vw;
   }
-  .star {
-    font-size: 2em;
-  }
-  h1 {
-    font-size: 2.8em;
-  }
-  p {
-    font-size: 1em;
-  }
-  .title {
-    font-size: 3.5em;
-  }
-  .bottom-title {
-    font-size: 1.2em;
-  }
-  .sample-des, .download-btn, .sample-link, .download-container  {
-    font-size: 1em;
-  }
-  .sample-title {
-    font-size: 2em;
-  }
   .question-modal {
     font-size: 0.8em;
     width: 70vw;
   }
-  .question, .settings-form label, .settings-form input, .update-btn, .question, .settings-tagline {
-    font-size: 1.2em;
-  } 
   .question-modal h1, .settings-tagline {
     margin-bottom: 3vh;
   }
-  .navbar-menu li {
-    font-size: 0.95em;
+  .download-container { 
+    width: 70vw;
   }
 }

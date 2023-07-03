@@ -13,7 +13,6 @@ function FlowDownload() {
     useEffect(() => {
         fetch("/api/getFlows")
         .then((response) => {
-            console.log(response)
             return response.json();
         })
         .then((res) => {
@@ -38,22 +37,24 @@ function FlowDownload() {
     }
 
     return (
-        <div className='row download-container'>
-            <p className='download-txt'>Download</p>
-            <Select
-                value={downloadFlow}
-                onChange={handleSelect}
-            >
-                {flowIDs.map((flow, i) => (
-                    <MenuItem
-                        key={i}
-                        value={flow.id}
-                    >
-                        {flow.name}
-                    </MenuItem>
-                ))}
-            </Select>
-            <button className='download-btn' onClick={(e) => handleDownload(e)}><DownloadIcon /></button>   
+        <div className='page'>
+            <div className='row download-container'>
+                <Select
+                    value={downloadFlow}
+                    onChange={handleSelect}
+                    className='select-container'
+                >
+                    {flowIDs.map((flow, i) => (
+                        <MenuItem
+                            key={i}
+                            value={flow.id}
+                        >
+                            {flow.name}
+                        </MenuItem>
+                    ))}
+                </Select>
+                <button className='download-btn' onClick={(e) => handleDownload(e)}><DownloadIcon /></button>   
+            </div>
         </div>
     )
 }
