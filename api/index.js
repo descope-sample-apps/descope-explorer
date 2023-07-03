@@ -14,6 +14,8 @@ export default async function getFlows(request, response) {
     const getFlowData = await descopeClient.management.flow.list()
     const sendFlowData = []
 
+    console.log(getFlowData)
+
     getFlowData.flows.forEach((flowMetadata) => {
       console.log(flowMetadata)
       if (!flowMetadata.disabled) {
