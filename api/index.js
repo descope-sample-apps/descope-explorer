@@ -13,6 +13,8 @@ export default async function getFlows(request, response) {
   try {
     const curr_flow_data = await descopeClient.management.flow.list()
 
+    console.log(curr_flow_data)
+
     response.status(200).json({
       body: curr_flow_data,
       query: request.query,
