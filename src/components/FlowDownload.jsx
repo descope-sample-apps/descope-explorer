@@ -16,6 +16,7 @@ function FlowDownload() {
             if (res) {
                 res.body.loaded = true;
                 const flowData = res.body.data.flows
+                console.log(res)
                 setFlowIDs(flowData)
                 setDownloadFlow(flowData[0].id)
                 return
