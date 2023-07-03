@@ -11,12 +11,18 @@ export default async function getFlows(request, response) {
   });
   
   try {
-    const curr_flow_data = await descopeClient.management.flow.list()
+    const getFlowData = await descopeClient.management.flow.list()
+    const sendFlowData = []
 
-    console.log(curr_flow_data)
+    getFlowData.flows.forEach((flowMetadata) => {
+      if (!flowMetadata.disabled) {
+        console.log(flowMetadata)
+        sendFlowData.push(flowMetadata)
+      }
+    });
 
     response.status(200).json({
-      body: curr_flow_data,
+      body: sendFlowData,
       query: request.query,
       cookies: request.cookies,
     });

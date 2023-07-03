@@ -10,15 +10,16 @@ function FlowDownload() {
     useEffect(() => {
         fetch("/api/getFlows")
         .then((response) => {
+            console.log(response)
             return response.json();
         })
         .then((res) => {
             if (res) {
                 res.body.loaded = true;
-                const flowData = res.body.data.flows
-                console.log(res)
-                setFlowIDs(flowData)
-                setDownloadFlow(flowData[0].id)
+                const flowRes = res.body
+                console.log(flowRes)
+                setFlowIDs(flowRes)
+                setDownloadFlow(flowRes[0].id)
                 return
             }
         })
@@ -33,13 +34,14 @@ function FlowDownload() {
     return (
         <div className='page'>
             <div className='row download-container'>
-                <select onChange={(e) => setDownloadFlow(e.target.value)} className='select-container'>
-                    {flowIDs.map((flow, i) => (
-                        <option key={i} value={flow.id}>
-                            {flow.name}
-                        </option>
-                    ))}
-                </select>
+                    <select onChange={(e) => setDownloadFlow(e.target.value)} className='select-container'>
+                        {flowIDs.map((flow, i) => (
+                            <option key={i} value={flow}>
+                                {flow.name}
+                            </option>
+                        ))}
+                    </select>
+                    <p>{downloadFlow.description}</p>
                 <button className='download-btn' onClick={(e) => handleDownload(e)}><DownloadIcon /></button>   
             </div>
         </div>
