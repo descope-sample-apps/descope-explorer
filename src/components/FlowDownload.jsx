@@ -48,7 +48,6 @@ function FlowDownload() {
                     <MenuItem
                         key={i}
                         value={flow.id}
-                        style={""}
                     >
                         {flow.name}
                     </MenuItem>
