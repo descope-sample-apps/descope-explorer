@@ -12,7 +12,7 @@ function AuthFlow({ flow, theme, setNoError }) {
 
   const [jwt, setJwt] = useState("")
   const [response, setResponse] = useState("")
-  const [flowIDs, setFlowIDs] = useState({})
+  const [flowIDs, setFlowIDs] = useState([])
 
   const logoutUser = useCallback(async() => {
     await logout()
@@ -31,7 +31,7 @@ function AuthFlow({ flow, theme, setNoError }) {
         if (res) {
           console.log(res)
           res.body.loaded = true;
-          setFlowIDs(res.body);
+          setFlowIDs(res.body.data.flows);
         }
       })
       .catch((err) => console.log('err => ', err));
