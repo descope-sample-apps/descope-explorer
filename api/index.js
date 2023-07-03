@@ -15,12 +15,14 @@ export default async function getFlows(request, response) {
     const sendFlowData = []
 
     getFlowData.flows.forEach((flowMetadata) => {
+      console.log(flowMetadata)
       if (!flowMetadata.disabled) {
         console.log(flowMetadata)
         sendFlowData.push(flowMetadata)
       }
     });
 
+    console.log(sendFlowData)
     response.status(200).json({
       body: sendFlowData,
       query: request.query,
