@@ -3,7 +3,6 @@ import { useState, useEffect, useCallback } from 'react'
 import { useDescope, useSession } from '@descope/react-sdk'
 import { Descope } from '@descope/react-sdk'
 import Replay from '@mui/icons-material/Replay'
-import FlowForm from './FlowForm'
 
 
 function AuthFlow({ flow, theme, setNoError }) {
@@ -60,8 +59,7 @@ function AuthFlow({ flow, theme, setNoError }) {
         )
       }
       {!isAuthenticated && (
-        <div className='flow-wrapper'>
-          <FlowForm />    
+        <div className='flow-wrapper'>   
           <div className='flow-shown'>
             <Descope
               flowId={flow} 

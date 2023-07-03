@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
 
-function FlowForm() {
+function FlowDownload() {
     const [flowIDs, setFlowIDs] = useState([])
     const [downloadFlow, setDownloadFlow] = useState("")
 
@@ -22,11 +22,11 @@ function FlowForm() {
                 res.body.loaded = true;
                 setFlowIDs(res.body.data.flows);
                 console.log(flowIDs)
-                // setDownloadFlow(flowIDs[0].id)
+                setDownloadFlow(flowIDs[0].id)
             }
         })
         .catch((err) => console.log('err => ', err));
-    }, [])
+    }, [flowIDs])
 
     const handleSelect = (e) => {
         setDownloadFlow(e.target.value);
@@ -60,4 +60,4 @@ function FlowForm() {
 }
 
 
-export default FlowForm
+export default FlowDownload

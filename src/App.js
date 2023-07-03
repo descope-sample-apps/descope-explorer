@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { AuthProvider } from '@descope/react-sdk'
 import Error from './components/Error';
 import AuthFlow from './components/AuthFlow';
@@ -8,6 +8,7 @@ import Introduction from './components/Introduction';
 import BottomNav from './components/BottomNav';
 import Sample from './components/Sample';
 import SDKShow from './components/SDKs';
+import FlowForm from './components/FlowDownload';
 
 const contentUrlLocalStorageKey = 'base.content.url'
 
@@ -41,6 +42,7 @@ function App() {
           <Navbar theme={theme} setTheme={setTheme} defaultProjectId={defaultProjectId} flow={flow} />
           <Introduction theme={theme} />
           <AuthProvider projectId={project} baseUrl={baseUrl}>
+            <FlowForm />
             <AuthFlow flow={flow} theme={theme} setNoError={setNoError} />
           </AuthProvider>
           <SDKShow theme={theme} />
