@@ -16,7 +16,7 @@ export default async function getFlows(request, response) {
 
     console.log(getFlowData)
 
-    getFlowData.flows.forEach((flowMetadata) => {
+    getFlowData.data.flows.forEach((flowMetadata) => {
       console.log(flowMetadata)
       if (!flowMetadata.disabled) {
         console.log(flowMetadata)
