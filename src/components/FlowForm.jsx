@@ -7,11 +7,11 @@ function FlowForm({ flowIDs }) {
     return (
         <div className='row download-container'>
             <p className='download-txt'>Download</p> 
-            {/* <select className='select-container'>
+            <select className='select-container'>
                 {flowIDs.map((option, i) => (
                     <option id={i} value={option}>{option}</option>
                 ))}
-            </select> */}
+            </select>
             <button className='download-btn'><DownloadIcon /></button>   
         </div>
     )
