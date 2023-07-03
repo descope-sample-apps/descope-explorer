@@ -8,8 +8,8 @@ function FlowForm({ flowIDs }) {
         <div className='row download-container'>
             <p className='download-txt'>Download</p> 
             <select className='select-container'>
-                {flowIDs.map((option, i) => (
-                    <option id={i} value={option}>{option}</option>
+                {flowIDs.map((flow, i) => (
+                    <option id={i} value={flow.id}>{flow.name}</option>
                 ))}
             </select>
             <button className='download-btn'><DownloadIcon /></button>   
