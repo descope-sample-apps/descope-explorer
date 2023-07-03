@@ -20,9 +20,9 @@ function FlowDownload() {
             if (res) {
                 console.log(res)
                 res.body.loaded = true;
-                setFlowIDs(res.body.data.flows);
-                console.log(flowIDs)
+                setFlowIDs(res.body.data.flows)
                 setDownloadFlow(flowIDs[0].id)
+                return 
             }
         })
         .catch((err) => console.log('err => ', err));
