@@ -1,18 +1,59 @@
 import '../App.css';
+import { useState, useEffect } from 'react'
 import DownloadIcon from '@mui/icons-material/Download'
 
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 
-function FlowForm({ flowIDs }) {
-    console.log(flowIDs)
+
+function FlowForm() {
+    const [flowIDs, setFlowIDs] = useState([])
+    const [downloadFlow, setDownloadFlow] = useState("")
+
+    useEffect(() => {
+        fetch("/api/getFlows")
+        .then((response) => {
+            console.log(response)
+            return response.json();
+        })
+        .then((res) => {
+            if (res) {
+                console.log(res)
+                res.body.loaded = true;
+                setFlowIDs(res.body.data.flows);
+                setDownloadFlow(flowIDs[0].id)
+            }
+        })
+        .catch((err) => console.log('err => ', err));
+    })
+
+    const handleSelect = (e) => {
+        setDownloadFlow(e.target.value);
+    };
+
+    const handleDownload = (e) => {
+        e.preventDefault();
+        console.log("download")
+    }
+
     return (
         <div className='row download-container'>
-            <p className='download-txt'>Download</p> 
-            <select className='select-container'>
-                {flowIDs.map((flow, i) => (
-                    <option id={i} value={flow.id}>{flow.name}</option>
+            <p className='download-txt'>Download</p>
+            <Select
+                value={downloadFlow}
+                onChange={handleSelect}
+            >
+                {flowIDs.map((flow) => (
+                    <MenuItem
+                        key={flow}
+                        value={flow.id}
+                        style={""}
+                    >
+                        {flow.name}
+                    </MenuItem>
                 ))}
-            </select>
-            <button className='download-btn'><DownloadIcon /></button>   
+            </Select>
+            <button className='download-btn' onClick={(e) => handleDownload(e)}><DownloadIcon /></button>   
         </div>
     )
 }

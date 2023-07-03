@@ -12,7 +12,6 @@ function AuthFlow({ flow, theme, setNoError }) {
 
   const [jwt, setJwt] = useState("")
   const [response, setResponse] = useState("")
-  const [flowIDs, setFlowIDs] = useState([])
 
   const logoutUser = useCallback(async() => {
     await logout()
@@ -22,19 +21,6 @@ function AuthFlow({ flow, theme, setNoError }) {
     if (!jwt) {
       logoutUser() 
     }
-    fetch("/api/getFlows")
-      .then((response) => {
-        console.log(response)
-        return response.json();
-      })
-      .then((res) => {
-        if (res) {
-          console.log(res)
-          res.body.loaded = true;
-          setFlowIDs(res.body.data.flows);
-        }
-      })
-      .catch((err) => console.log('err => ', err));
   }, [jwt, logoutUser]) 
 
   const setJWTs = (e) => {
@@ -49,8 +35,6 @@ function AuthFlow({ flow, theme, setNoError }) {
     var tokens = res.split(".");
     return JSON.stringify(JSON.parse(atob(tokens[1])), null, 2)
   }
-
-  console.log(flowIDs)
 
   return (
     <div className='page authflow'>
@@ -77,7 +61,7 @@ function AuthFlow({ flow, theme, setNoError }) {
       }
       {!isAuthenticated && (
         <div className='flow-wrapper'>
-          <FlowForm flowIDs={flowIDs} />    
+          <FlowForm />    
           <div className='flow-shown'>
             <Descope
               flowId={flow} 
