@@ -2,13 +2,10 @@ import '../App.css';
 import { useState, useEffect } from 'react'
 import DownloadIcon from '@mui/icons-material/Download'
 
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-
 
 function FlowDownload() {
     const [flowIDs, setFlowIDs] = useState([])
-    const [downloadFlow, setDownloadFlow] = useState()
+    const [downloadFlow, setDownloadFlow] = useState("")
 
     useEffect(() => {
         fetch("/api/getFlows")
@@ -27,10 +24,6 @@ function FlowDownload() {
         .catch((err) => console.log('err => ', err));
     }, [])
 
-    const handleSelect = (e) => {
-        setDownloadFlow(e.target.value);
-    };
-
     const handleDownload = (e) => {
         e.preventDefault();
         console.log("download")
@@ -39,20 +32,13 @@ function FlowDownload() {
     return (
         <div className='page'>
             <div className='row download-container'>
-                <Select
-                    value={downloadFlow}
-                    onChange={handleSelect}
-                    className='select-container'
-                >
+                <select onChange={(e) => setDownloadFlow(e.target.value)} className='select-container'>
                     {flowIDs.map((flow, i) => (
-                        <MenuItem
-                            key={i}
-                            value={flow.id}
-                        >
+                        <option key={i} value={flow.id}>
                             {flow.name}
-                        </MenuItem>
+                        </option>
                     ))}
-                </Select>
+                </select>
                 <button className='download-btn' onClick={(e) => handleDownload(e)}><DownloadIcon /></button>   
             </div>
         </div>
