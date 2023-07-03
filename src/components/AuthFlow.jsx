@@ -50,6 +50,8 @@ function AuthFlow({ flow, theme, setNoError }) {
     return JSON.stringify(JSON.parse(atob(tokens[1])), null, 2)
   }
 
+  console.log(flowIDs)
+
   return (
     <div className='page authflow'>
       {isAuthenticated &&  
