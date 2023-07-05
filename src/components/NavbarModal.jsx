@@ -3,25 +3,12 @@ import Modal from '@mui/material/Modal';
 import "../App.css"
 
 
-function NavbarModal ({ openModal, setOpenModal, defaultTheme, defaultProjectId, defaultFlow }) {
+function NavbarModal ({ openModal, defaultTheme, defaultProjectId, defaultFlow, setOpenModal, setURL }) {
     const [settings, setSettings] = useState({
-        thisTheme: "",
-        thisProject: "",
-        thisFlow: ""
+        settingTheme: "",
+        settingProject: "",
+        settingFlow: ""
     });
-
-    const handleSubmit = () => {
-        var url = new URL(window.location.href);
-        var search_params = url.searchParams;
-
-        search_params = checkSetParam('theme', search_params, settings.thisTheme)
-        search_params = checkSetParam('project', search_params, settings.thisProject)
-        search_params = checkSetParam('flow', search_params, settings.thisFlow)
-
-        url.search = search_params.toString();
-        const new_url = url.toString();
-        window.location.replace(new_url) 
-    }
 
     const handleChange = (e) => {
         setSettings({
@@ -29,12 +16,6 @@ function NavbarModal ({ openModal, setOpenModal, defaultTheme, defaultProjectId,
           [e.target.name]: e.target.value
         });
     };
-
-    const checkSetParam = (param, search_params, val) => {
-        let new_search = search_params
-        if (val) { new_search.set(param, val) }
-        return new_search
-    }
 
     return (
         <Modal
@@ -60,13 +41,13 @@ function NavbarModal ({ openModal, setOpenModal, defaultTheme, defaultProjectId,
                         <p className="settings-tagline">Try modifying the default values with your own project info!</p>
                         <div className="settings-form">
                             <label className="settings-label">Project ID:</label>
-                            <input type="text" name="thisProject" placeholder={defaultProjectId} onChange={(e) => handleChange(e)} />
+                            <input type="text" name="settingProject" placeholder={defaultProjectId} onChange={(e) => handleChange(e)} />
                             <label className="settings-label">Flow ID:</label>
-                            <input type="text" name="thisFlow" placeholder={defaultFlow} onChange={(e) => handleChange(e)} />
+                            <input type="text" name="settingFlow" placeholder={defaultFlow} onChange={(e) => handleChange(e)} />
                             <label className="settings-label">Theme:</label>
-                            <input type="text" name="thisTheme" placeholder={defaultTheme} onChange={(e) => handleChange(e)} />
+                            <input type="text" name="settingTheme" placeholder={defaultTheme} onChange={(e) => handleChange(e)} />
                         </div>
-                        <button className="update-btn" onClick={() => handleSubmit()}>Update</button>
+                        <button className="update-btn" onClick={() => setURL(settings.settingTheme, settings.settingProject, settings.settingFlow)}>Update</button>
                     </>
                 }
             </div>

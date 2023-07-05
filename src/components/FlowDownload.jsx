@@ -1,14 +1,13 @@
 import '../App.css';
 import { useState, useEffect } from 'react'
 import DownloadIcon from '@mui/icons-material/Download'
-import {saveAs} from "file-saver";
-import { Skeleton } from '@mui/material';
+import { saveAs } from "file-saver";
 
 
-function FlowDownload() {
+function FlowDownload({ defaultFlow, setURL }) {
     const [flowIDs, setFlowIDs] = useState([])
+    const downloadFlow = flowIDs.find(obj => obj.id === defaultFlow);
     const [isLoading, setIsLoading] = useState(true)
-    const [downloadFlow, setDownloadFlow] = useState({})
     
     useEffect(() => {
         fetch("/api/getFlows")
@@ -20,7 +19,6 @@ function FlowDownload() {
                     res.body.loaded = true;
                     const flowRes = res.body
                     setFlowIDs(flowRes)
-                    setDownloadFlow(flowRes[0])
                     setIsLoading(false);
                     return
                 }
@@ -57,16 +55,16 @@ function FlowDownload() {
             {!isLoading ? 
                 <>
                     <div className='row download-container'>
-                            <select onChange={e => setDownloadFlow(flowIDs[e.target.value])} className='select-container'>
+                            <select value={defaultFlow} onChange={e => setURL("", "", e.target.value)} className='select-container'>
                                 {flowIDs.map((flow, i) => (
-                                    <option key={i} value={i}>
+                                    <option key={i} value={flow.id}>
                                         {flow.name}
                                     </option>
                                 ))}
                             </select>
                         <button className='download-btn' onClick={(e) => handleDownload(e)}><DownloadIcon /></button>   
                     </div>
-                    <p className='download-des'>{downloadFlow["description"]}</p>
+                    <p className='download-des'>{downloadFlow.description}</p>
                 </>
             :
                 <>

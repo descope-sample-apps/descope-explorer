@@ -10,26 +10,15 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import Logo from "../assets/logo.png"
 
 import "../App.css"
-import NavbarModal from "./NavbarModal";
 
 
-function Navbar({ theme, setTheme, project, flow }) {
+
+function Navbar({ theme, setURL, setOpenModal }) {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
-    const [openModal, setOpenModal] = useState({
-        open: false,
-        modalType: ""
-    });
 
     if (theme === "dark") {
         document.documentElement.setAttribute("data-theme", "dark");
     } 
-
-    const changeTheme = (theme) => {
-        var url = new URL(window.location.href)
-        url.searchParams.set("theme", theme)
-        window.location.replace(url.toString()) 
-        setTheme(theme)
-    }
 
     return (
         <nav className="navbar">
@@ -63,12 +52,11 @@ function Navbar({ theme, setTheme, project, flow }) {
                     </li>
                     <li className="navbar-btn-li">
                         {theme === "light" ? 
-                            <button className="navbar-btn" onClick={() => changeTheme("dark")}><DarkModeIcon /></button>
+                            <button className="navbar-btn" onClick={() => setURL("dark")}><DarkModeIcon /></button>
                             :
-                            <button className="navbar-btn" onClick={() => changeTheme("light")}><LightModeIcon /></button>
+                            <button className="navbar-btn" onClick={() => setURL("light")}><LightModeIcon /></button>
                         }
                     </li>
-                    <NavbarModal openModal={openModal} setOpenModal={setOpenModal} defaultFlow={flow} defaultProjectId={project} defaultTheme={theme}/>
                 </ul>
             </div>
         </nav>
