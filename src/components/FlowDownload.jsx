@@ -70,8 +70,7 @@ function FlowDownload() {
                 </>
             :
                 <>
-                    <Skeleton sx={{ borderRadius: "6px", bgcolor: "grey.200" }} className='row download-container' variant="rectangular"/>
-                    <Skeleton sx={{ borderRadius: "6px", bgcolor: "grey.200" }} className='download-des' variant="rectangular"/>
+                    <p>Loading...</p>
                 </>
             }
         </div>

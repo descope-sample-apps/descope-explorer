@@ -297,12 +297,13 @@ pre {
 .question-modal {
   overflow: auto;
   height: fit-content;
+  max-height: 80vh;
   display: flex;
   margin: 0 auto;
   width: 50vw;
   background-color: var(--question-modal-bg);
   padding: 6vh 5vh;
-  padding-bottom: 8vh;
+  padding-bottom: 7.5vh;
   border-radius: 15px;
   text-align: left;
   font-size: 1.3rem;
@@ -351,6 +352,7 @@ pre {
   font-family: 'JetBrains Mono', monospace;
 }
 .questions-modal-title {
+  font-size: 2.8rem;
   color: var(--questions-modal-color);
 }
 .settings-form {
@@ -593,6 +595,8 @@ pre {
   box-shadow: 0px 0px 8px var(--pulse-bg);
 }
 .inner-question-container {
+  overflow: scroll;
+  height: 100%;
   width: 90%;
 }
 
