@@ -52,7 +52,7 @@ function App() {
   const queryParameters = new URLSearchParams(window.location.search)
   const project = queryParameters.get("project") || defaultProjectId
   const currTheme = queryParameters.get("theme") || "light"
-  const flow = queryParameters.get("flow") || "otp-over-sms"
+  const flow = queryParameters.get("flow") || "sign-up-or-in"
 
   const baseUrl = queryParameters.get("base-url")
   setContentUrl(baseUrl)
