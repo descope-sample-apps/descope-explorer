@@ -684,6 +684,11 @@ pre {
   margin-bottom: 3vh;
 }
 
+/* ===== Loading ===== */
+.loading-title {
+  font-size: 2rem;
+}
+
 
 /*  ===== Responsive ===== */
 @media screen and (max-width: 910px) {

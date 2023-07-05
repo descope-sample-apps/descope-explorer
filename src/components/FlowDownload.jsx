@@ -1,30 +1,11 @@
 import '../App.css';
-import { useState, useEffect } from 'react'
+import React from 'react'
 import DownloadIcon from '@mui/icons-material/Download'
 import { saveAs } from "file-saver";
 
 
-function FlowDownload({ defaultFlow, setURL }) {
-    const [flowIDs, setFlowIDs] = useState([])
+function FlowDownload({ defaultFlow, flowIDs, setURL }) {
     const downloadFlow = flowIDs.find(obj => obj.id === defaultFlow);
-    const [isLoading, setIsLoading] = useState(true)
-    
-    useEffect(() => {
-        fetch("/api/getFlows")
-            .then((response) => {
-                return response.json();
-            })
-            .then((res) => {
-                if (res) {
-                    res.body.loaded = true;
-                    const flowRes = res.body
-                    setFlowIDs(flowRes)
-                    setIsLoading(false);
-                    return
-                }
-            })
-            .catch((err) => console.log('err => ', err));
-    }, [])
 
     const handleDownload = (e) => {
         e.preventDefault();
@@ -52,25 +33,17 @@ function FlowDownload({ defaultFlow, setURL }) {
 
     return (
         <div className='page'>
-            {!isLoading && flowIDs ? 
-                <>
-                    <div className='row download-container'>
-                            <select value={defaultFlow} onChange={e => setURL("", "", e.target.value)} className='select-container'>
-                                {flowIDs.map((flow, i) => (
-                                    <option key={i} value={flow.id}>
-                                        {flow.name}
-                                    </option>
-                                ))}
-                            </select>
-                        <button className='download-btn' onClick={(e) => handleDownload(e)}><DownloadIcon /></button>   
-                    </div>
-                    {downloadFlow.description && <p className='download-des'>{downloadFlow.description}</p>}
-                </>
-            :
-                <>
-                    <p>Loading...</p>
-                </>
-            }
+            <div className='row download-container'>
+                    <select value={defaultFlow} onChange={e => setURL("", "", e.target.value)} className='select-container'>
+                        {flowIDs.map((flow, i) => (
+                            <option key={i} value={flow.id}>
+                                {flow.name}
+                            </option>
+                        ))}
+                    </select>
+                <button className='download-btn' onClick={(e) => handleDownload(e)}><DownloadIcon /></button>   
+            </div>
+            {downloadFlow.description && <p className='download-des'>{downloadFlow.description}</p>}
         </div>
     )
 }
