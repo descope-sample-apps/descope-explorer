@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { AuthProvider } from '@descope/react-sdk'
 import Error from './components/Error';
 import AuthFlow from './components/AuthFlow';
@@ -10,7 +10,6 @@ import Sample from './components/Sample';
 import SDKShow from './components/SDKs';
 import FlowDownload from './components/FlowDownload';
 import NavbarModal from './components/NavbarModal';
-import Loading from './components/Loading';
 
 
 const contentUrlLocalStorageKey = 'base.content.url'
@@ -53,38 +52,13 @@ function App() {
   const queryParameters = new URLSearchParams(window.location.search)
   const project = queryParameters.get("project") || defaultProjectId
   const currTheme = queryParameters.get("theme") || "light"
-  const [flow, setFlow] = useState(queryParameters.get("flow")) 
-
-  const [isLoading, setIsLoading] = useState(true)
-  const [flowIDs, setFlowIDs] = useState([])
-
-  useEffect(() => {
-    fetch("/api/getFlows")
-        .then((response) => {
-            return response.json();
-        })
-        .then((res) => {
-            if (res) {
-                res.body.loaded = true;
-                const flowRes = res.body
-                setFlowIDs(flowRes)
-                setFlow(flowRes[0].id)
-                setIsLoading(false)
-                return
-            }
-        })
-        .catch((err) => console.log('err => ', err));
-  }, [])
+  const flow = queryParameters.get("flow") || "otp-over-sms"
 
   const baseUrl = queryParameters.get("base-url")
   setContentUrl(baseUrl)
 
   const [noError, setNoError] = useState(currTheme === "light" || currTheme === "dark" || !currTheme)
   const [openModal, setOpenModal] = useState({open: false, modalType: ""});
-
-  if (isLoading) {
-    return <Loading />
-  }
 
   return (
     <>
@@ -105,11 +79,9 @@ function App() {
           />
           <Introduction theme={currTheme} />
           <AuthProvider projectId={project} baseUrl={baseUrl}>
-            {(project === defaultProjectId && flowIDs) && 
+            {(project === defaultProjectId) && 
               <FlowDownload 
                 defaultFlow={flow} 
-                flowIDs={flowIDs} 
-                isLoading={isLoading}
                 setURL={setURL} />
             }
             <AuthFlow 
