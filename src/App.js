@@ -8,7 +8,7 @@ import Introduction from './components/Introduction';
 import BottomNav from './components/BottomNav';
 import Sample from './components/Sample';
 import SDKShow from './components/SDKs';
-import FlowForm from './components/FlowDownload';
+import FlowDownload from './components/FlowDownload';
 
 const contentUrlLocalStorageKey = 'base.content.url'
 
@@ -22,7 +22,7 @@ const setContentUrl = (baseUrl) => {
 }
 
 function App() {
-  const defaultProjectId = "P2QZZJhnbALQo5FSNKRi0KAHHRz6"
+  const defaultProjectId = process.env.REACT_APP_DESCOPE_PROJECT_ID
   const queryParameters = new URLSearchParams(window.location.search)
   const project = queryParameters.get("project") || defaultProjectId
 
@@ -39,10 +39,10 @@ function App() {
     <>
       {project && flow && noError ? 
         <>
-          <Navbar theme={theme} setTheme={setTheme} defaultProjectId={defaultProjectId} flow={flow} />
+          <Navbar theme={theme} setTheme={setTheme} project={project} flow={flow} />
           <Introduction theme={theme} />
           <AuthProvider projectId={project} baseUrl={baseUrl}>
-            <FlowForm />
+            {project === defaultProjectId && <FlowDownload />}
             <AuthFlow flow={flow} theme={theme} setNoError={setNoError} />
           </AuthProvider>
           <SDKShow theme={theme} />
@@ -50,7 +50,7 @@ function App() {
           <BottomNav />
         </>
         :
-        <Error defaultProjectId={defaultProjectId} />
+        <Error />
       }
     </>
   )

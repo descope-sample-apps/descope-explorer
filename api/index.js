@@ -10,32 +10,48 @@ export default async function getFlows(request, response) {
     managementKey: managementKey,
   });
   
-  try {
-    const getFlowData = await descopeClient.management.flow.list()
-    const sendFlowData = []
+  if (request.method === 'POST') {
+    try {
+      const requestFlowID = request.headers.flowid
+      const res = await descopeClient.management.flow.export(requestFlowID);
 
-    console.log(getFlowData)
+      const exportData = {"screens": res.data.screens, "flow": res.data.flow}
 
-    getFlowData.data.flows.forEach((flowMetadata) => {
-      console.log(flowMetadata)
-      if (!flowMetadata.disabled) {
-        console.log(flowMetadata)
-        sendFlowData.push(flowMetadata)
-      }
-    });
+      response.status(200).json({
+        exportData: exportData,
+        query: request.query,
+        cookies: request.cookies,
+      });
+    } catch (error) {
+      response.status(401).json({
+        body: {},
+        query: request.query,
+        cookies: request.cookies,
+      });
+    }
+  } else {
+    try {
+      const getFlowData = await descopeClient.management.flow.list()
+      const sendFlowData = []
 
-    console.log(sendFlowData)
-    response.status(200).json({
-      body: sendFlowData,
-      query: request.query,
-      cookies: request.cookies,
-    });
-  } catch (error) {
-    response.status(401).json({
-      body: {},
-      query: request.query,
-      cookies: request.cookies,
-    });
+      getFlowData.data.flows.forEach((flowMetadata) => {
+        if (!flowMetadata.disabled) {
+          sendFlowData.push(flowMetadata)
+        }
+      });
+
+      response.status(200).json({
+        body: sendFlowData,
+        query: request.query,
+        cookies: request.cookies,
+      });
+    } catch (error) {
+      response.status(401).json({
+        body: {},
+        query: request.query,
+        cookies: request.cookies,
+      });
+    }
   }
 
   response.send();
