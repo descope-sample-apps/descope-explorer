@@ -6,6 +6,7 @@ import Node from "../assets/nodejs.png"
 import Python from "../assets/python.png"
 import React from "../assets/react.png"
 import Swift from "../assets/swift.png"
+import Kotlin from "../assets/kotlin.png"
 
 
 function SDKShow({ theme }) {
@@ -73,6 +74,13 @@ const SDKs = [
         link: "https://github.com/descope/descope-flutter",
         style1: "sdk-img fluttersdk",
         style2: "sdk-img"
+    },
+    {
+        title: "Kotlin",
+        img: Kotlin,
+        link: "https://github.com/descope/descope-kotlin",
+        style1: "sdk-img kotlinsdk kotlin-size",
+        style2: "sdk-img kotlin-size"
     }
 ] 
 

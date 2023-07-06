@@ -1,12 +1,13 @@
-import '../App.css';
-import { useState, useEffect, useCallback } from 'react';
+import '../App.css'
+import { useState, useEffect, useCallback } from 'react'
 import { useDescope, useSession } from '@descope/react-sdk'
 import { Descope } from '@descope/react-sdk'
-import Replay from '@mui/icons-material/Replay';
+import Replay from '@mui/icons-material/Replay'
 
 function AuthFlow({ flow, theme, setNoError }) {
   const { isAuthenticated } = useSession()
   const { logout } = useDescope()
+
   const [jwt, setJwt] = useState("")
   const [response, setResponse] = useState("")
 
@@ -19,7 +20,6 @@ function AuthFlow({ flow, theme, setNoError }) {
       logoutUser() 
     }
   }, [jwt, logoutUser]) 
-
 
   const setJWTs = (e) => {
     const response = JSON.stringify(e.detail, null, 2)
@@ -58,13 +58,15 @@ function AuthFlow({ flow, theme, setNoError }) {
         )
       }
       {!isAuthenticated && (
-        <div className='flow-shown'>
+        <div className='flow-wrapper'>   
+          <div className='flow-shown'>
             <Descope
               flowId={flow} 
               onSuccess = {(e) => setJWTs(e)}
               onError={(e) => setNoError(false)}
               theme={theme}
             /> 
+          </div>
         </div>
       )}
     </div>
