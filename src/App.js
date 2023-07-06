@@ -45,6 +45,17 @@ const checkSetParam = (param, search_params, val) => {
 }
 
 
+const contentUrlLocalStorageKey = 'base.content.url'
+
+const setContentUrl = (baseUrl) => {
+  if (baseUrl?.includes('descope.org')) {
+    localStorage.setItem(contentUrlLocalStorageKey, 'https://static.descope.org/pages')
+    return
+  }
+
+  localStorage.removeItem(contentUrlLocalStorageKey);
+}
+
 function App() {
   const defaultProjectId = process.env.REACT_APP_DESCOPE_PROJECT_ID
 
@@ -61,7 +72,7 @@ function App() {
 
   return (
     <>
-      {project && flow && noError ? 
+      {project && flow && noError ?
         <>
           <Navbar 
             theme={currTheme} 

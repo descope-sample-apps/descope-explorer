@@ -4,7 +4,6 @@ import { useDescope, useSession } from '@descope/react-sdk'
 import { Descope } from '@descope/react-sdk'
 import Replay from '@mui/icons-material/Replay'
 
-
 function AuthFlow({ flow, theme, setNoError }) {
   const { isAuthenticated } = useSession()
   const { logout } = useDescope()
