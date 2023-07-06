@@ -53,7 +53,7 @@ function FlowDownload({ defaultFlow, setURL, setNoError }) {
 
     return (
         <div className='page'>
-            {!isLoading ? 
+            {!isLoading && flowIDs ? 
                 <>
                     <div className='row download-container'>
                             <select value={defaultFlow} onChange={e => setURL("", "", e.target.value)} className='select-container'>
