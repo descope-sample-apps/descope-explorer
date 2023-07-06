@@ -40,7 +40,6 @@ const setURL = (theme, project, flow) => {
 
 const checkSetParam = (param, search_params, val) => {
   let new_search = search_params
-  console.log(new_search)
   if (val) { new_search.set(param, val) }
   return new_search
 }
@@ -82,7 +81,9 @@ function App() {
             {(project === defaultProjectId) && 
               <FlowDownload 
                 defaultFlow={flow} 
-                setURL={setURL} />
+                setURL={setURL}
+                setNoError={setNoError} 
+              />
             }
             <AuthFlow 
               flow={flow} 

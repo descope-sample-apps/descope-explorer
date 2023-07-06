@@ -4,7 +4,7 @@ import DownloadIcon from '@mui/icons-material/Download'
 import { saveAs } from "file-saver";
 
 
-function FlowDownload({ defaultFlow, setURL }) {
+function FlowDownload({ defaultFlow, setURL, setNoError }) {
     const [isLoading, setIsLoading] = useState(true)
     const [flowIDs, setFlowIDs] = useState([])
     const downloadFlow = flowIDs.find(obj => obj.id === defaultFlow);
@@ -15,13 +15,14 @@ function FlowDownload({ defaultFlow, setURL }) {
                 return response.json();
             })
             .then((res) => {
-                if (res) {
+                if (res.body) {
                     res.body.loaded = true;
                     const flowRes = res.body
                     setFlowIDs(flowRes)
                     setIsLoading(false)
                     return
                 }
+                return setNoError(true)
             })
             .catch((err) => console.log('err => ', err));
     }, [])
