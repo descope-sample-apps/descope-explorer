@@ -2,7 +2,6 @@ import "../App.css"
 
 
 function Introduction({ theme }) {
-
     return (
       <div className="page">
         <h1 className={theme==="light" ? "title": "title gradient"}>Descope Explorer </h1>

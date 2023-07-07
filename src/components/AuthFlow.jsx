@@ -4,6 +4,7 @@ import { useDescope, useSession } from '@descope/react-sdk'
 import { Descope } from '@descope/react-sdk'
 import Replay from '@mui/icons-material/Replay'
 
+
 function AuthFlow({ flow, theme, setNoError }) {
   const { isAuthenticated } = useSession()
   const { logout } = useDescope()
@@ -63,7 +64,7 @@ function AuthFlow({ flow, theme, setNoError }) {
             <Descope
               flowId={flow} 
               onSuccess = {(e) => setJWTs(e)}
-              onError={(e) => setNoError(false)}
+              onError={() => setNoError(false)}
               theme={theme}
             /> 
           </div>

@@ -4,9 +4,9 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CheckIcon from '@mui/icons-material/Check';
 
 
-function Error() {
+function Error({ projectId }) {
     const [value, copy] = useCopyToClipboard()
-    const exampleText = `https://descope-explorer.com/?project=${process.env.REACT_APP_DESCOPE_PROJECT_ID}&flow=sign-up-or-in&theme=dark`
+    const exampleText = `https://descope-explorer.com/?project=${projectId}&flow=sign-up-or-in&theme=dark`
   
     return (
       <div className='page error fullscreen'>

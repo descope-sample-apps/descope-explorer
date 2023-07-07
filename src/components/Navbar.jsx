@@ -16,10 +16,6 @@ import "../App.css"
 function Navbar({ theme, setURL, setOpenModal }) {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
 
-    if (theme === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-    } 
-
     return (
         <nav className="navbar">
             <a className="logo-link" target="_blank" rel="noreferrer" href="https://www.descope.com/">

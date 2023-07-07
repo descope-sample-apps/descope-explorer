@@ -47,17 +47,19 @@ const checkSetParam = (param, search_params, val) => {
 
 function App() {
   const defaultProjectId = process.env.REACT_APP_DESCOPE_PROJECT_ID
-
   const queryParameters = new URLSearchParams(window.location.search)
   const project = queryParameters.get("project") || defaultProjectId
   const currTheme = queryParameters.get("theme") || "light"
   const flow = queryParameters.get("flow") || (defaultProjectId === project ? "otp-over-sms" : "sign-up-or-in")
+  const [noError, setNoError] = useState(currTheme === "light" || currTheme === "dark" || !currTheme)
+  const [openModal, setOpenModal] = useState({open: false, modalType: ""});
 
   const baseUrl = queryParameters.get("base-url")
   setContentUrl(baseUrl)
 
-  const [noError, setNoError] = useState(currTheme === "light" || currTheme === "dark" || !currTheme)
-  const [openModal, setOpenModal] = useState({open: false, modalType: ""});
+  if (currTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+  } 
 
   return (
     <>
@@ -96,7 +98,7 @@ function App() {
           <BottomNav />
         </>
         :
-        <Error />
+        <Error projectId={defaultProjectId} />
       }
     </>
   )
