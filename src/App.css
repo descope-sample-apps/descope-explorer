@@ -113,7 +113,7 @@
   --pulse-bg: rgb(7, 207, 184);
   --settings-label-color: rgb(228, 228, 228);
   --download-btn-text: rgb(26, 234, 220);
-  --select-container-bg: rgb(39, 39, 39);
+  --select-container-bg: rgb(36, 36, 36);
   --select-container-text: rgb(26, 234, 220);
   --select-down-arrow-bg: rgb(68, 68, 68);
   --select-down-arrow-color: rgb(19, 221, 184);
@@ -190,6 +190,7 @@ p {
   margin: 0;
   margin-bottom: 4vh;
 }
+
 
 /*  ===== Error ===== */
 .error-title {
@@ -439,6 +440,7 @@ pre {
   color: var(--github-color);
 }
 
+
 /* ===== SDK ===== */
 .sdk-img {
   margin: 1.5vh;
@@ -482,7 +484,6 @@ pre {
 .fluttersdk {
   -webkit-filter: drop-shadow(0px 0px 30px var(--flutter-shadow));
 }
-
 
 
 /*  ===== Navbar ===== */
@@ -623,7 +624,6 @@ pre {
 .download-container {
   font-size: 1.1rem;
   color: var(--download-btn-text);
-  width: fit-content;
   width: 60vh;
   padding: 2vh 0;
   margin-bottom: 1vh;
@@ -646,9 +646,9 @@ pre {
   border-radius: 5px;
   padding-right: 2vh;
   padding-left: 2vh;
-  width: 55%;
+  width: 100%;
   display: inline-block;
-  line-height: 1.5em;
+  line-height: 25px;
   margin: 0;      
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -673,9 +673,9 @@ pre {
 }
 .download-des {
   text-align: left;
-  width: 65vh;
   background-color: #e1f6ff;
   padding: 3vh;
+  width: 62vh;
   font-size: 0.9rem;
   border-radius: 15px;
   color: var(--select-container-text);
@@ -683,6 +683,7 @@ pre {
   line-height: 1.5em;
   margin-bottom: 3vh;
 }
+
 
 /* ===== Loading ===== */
 .loading-title {
@@ -807,5 +808,8 @@ pre {
   .download-des {
     text-align: left;
     width: 70%;
+  }
+  .select-container {
+    width: 55%;
   }
 }

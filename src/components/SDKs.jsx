@@ -10,7 +10,6 @@ import Kotlin from "../assets/kotlin.png"
 
 
 function SDKShow({ theme }) {
-
     return (
         <div className='page sample'>
             <h1 className={theme==="light" ? "title sample-title": "title sample-title second-title"}>Our SDKs</h1>
